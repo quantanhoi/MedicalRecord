@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class AddPatientActivity extends AppCompatActivity {
-    public static Patient newPatient = new Patient();
+    public static Patient newPatient = new Patient("default", "default");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

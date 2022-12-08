@@ -20,9 +20,9 @@ public class Patient {
     String m_firstName;
     String m_lastName;
 
-    public Patient() {
-        this.m_firstName = "default First Name";
-        this.m_lastName = "default Last Name";
+    public Patient(String firstName, String lastName) {
+        this.m_firstName = firstName;
+        this.m_lastName = lastName;
     }
 
 }

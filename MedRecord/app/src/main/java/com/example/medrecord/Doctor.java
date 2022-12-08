@@ -9,31 +9,50 @@ public class Doctor {
 
     ArrayList<Patient> patientList = new ArrayList<>();
     public Doctor() {
-        addPatient("Trung", "Thieu");
-        addPatient("Quang", "Tran");
-        addPatient("Boris", "Augustin");
-        addPatient("Jordis", "Ortun");
-        addPatient("Engel", "Annika");
-        addPatient("Sofie", "Berthold");
-        addPatient("Jakob", "Jochim");
-        addPatient("Franzi", "Carolin");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
-        addPatient("Helma", "Jakob");
+//        addPatient("Trung", "Thieu");
+//        addPatient("Quang", "Tran");
+//        addPatient("Boris", "Augustin");
+//        addPatient("Jordis", "Ortun");
+//        addPatient("Engel", "Annika");
+//        addPatient("Sofie", "Berthold");
+//        addPatient("Jakob", "Jochim");
+//        addPatient("Franzi", "Carolin");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+//        addPatient("Helma", "Jakob");
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
+        patientList.add(new Patient("Trung", "Thieu"));
 
 
     }
-    public void addPatient(String firstName, String lastName) {
-        Patient p = new Patient();
-        p.setM_lastName(firstName);
-        p.setM_lastName(lastName);
-        patientList.add(p);
-    }
+//    public void addPatient(String firstName, String lastName) {
+//        Patient p = new Patient();
+//        p.setM_lastName(firstName);
+//        p.setM_lastName(lastName);
+//        patientList.add(p);
+//    }
 }
