@@ -21,7 +21,7 @@ public class DoctorActivity extends AppCompatActivity {
         patientList = findViewById(R.id.patientListView);
         ArrayList<String> patListName = new ArrayList<>();
         for(int i = 0; i < Doc.getPatientList().size(); i++) {
-            patListName.add(Doc.getPatientList().get(i).getM_firstName());
+            patListName.add(Doc.getPatientList().get(i).getId() +" " + Doc.getPatientList().get(i).getM_firstName() + " " + Doc.getPatientList().get(i).getM_lastName());
         }
         ArrayAdapter<String> patientAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_list_item_1, patListName

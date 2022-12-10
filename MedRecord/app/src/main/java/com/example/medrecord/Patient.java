@@ -16,13 +16,22 @@ public class Patient {
     public void setM_lastName(String m_lastName) {
         this.m_lastName = m_lastName;
     }
+    private static int idNummer = 100000;
 
+    public int getId() {
+        return id;
+    }
+
+    private int id;
     String m_firstName;
     String m_lastName;
 
     public Patient(String firstName, String lastName) {
         this.m_firstName = firstName;
         this.m_lastName = lastName;
+
+        id = idNummer;
+        idNummer++;
     }
 
 }
