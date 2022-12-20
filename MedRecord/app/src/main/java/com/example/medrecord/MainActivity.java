@@ -20,4 +20,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DoctorActivity.class);
         startActivity(intent);
     }
+    public void onButtonAdminClick(View view) {
+        openAdminActivity();
+    }
+    public void openAdminActivity() {
+        Intent intent = new Intent(this, AdminActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -4,14 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 public class AddPatientActivity extends AppCompatActivity {
-    public static Patient newPatient = new Patient("default", "default");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_patient);
+
     }
 
     public void addPatientClick(View view) {
@@ -21,8 +25,8 @@ public class AddPatientActivity extends AppCompatActivity {
         String firstName = edText.getText().toString();
         edText = findViewById(R.id.editTextPersonLastName);
         String lastName = edText.getText().toString();
-        newPatient.setM_firstName(firstName);
-        newPatient.setM_lastName(lastName);
+        Singleton_Patient_List.getInstance().addNewPatient(new Patient(firstName, lastName));
         finish();
+
     }
 }
