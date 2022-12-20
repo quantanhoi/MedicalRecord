@@ -36,7 +36,7 @@ public class ManagePatientActivity extends AppCompatActivity {
     }
     public void addPatientClick(View view) {
         Intent intent = new Intent(this, AddPatientActivity.class);
-        startActivityForResult(intent, requestCode);
+//        startActivityForResult(intent, requestCode);
         startActivity(intent);
     }
     public void startPatientActivity() {
