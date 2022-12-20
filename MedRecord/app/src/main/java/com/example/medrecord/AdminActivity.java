@@ -13,6 +13,7 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
     }
+
     public void onManagePatientClick(View view) {
         openManagePatientActivity();
     }

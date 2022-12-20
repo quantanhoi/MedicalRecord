@@ -2,6 +2,7 @@ package com.example.medrecord;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,16 +18,21 @@ public class AddPatientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_patient);
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     public void addPatientClick(View view) {
-
         EditText edText = findViewById(R.id.editPersonFirstName);
-
         String firstName = edText.getText().toString();
         edText = findViewById(R.id.editTextPersonLastName);
         String lastName = edText.getText().toString();
         Singleton_Patient_List.getInstance().addNewPatient(new Patient(firstName, lastName));
         finish();
-
+    }
+    public void openManagePatientActivity() {
+        Intent intent = new Intent(this, ManagePatientActivity.class);
+        startActivity(intent);
     }
 }

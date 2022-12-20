@@ -13,6 +13,13 @@
         android:theme="@style/Theme.MedRecord"
         tools:targetApi="31">
         <activity
+            android:name=".AddPatientForDoctorActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ManagePatientActivity"
             android:exported="false">
             <meta-data

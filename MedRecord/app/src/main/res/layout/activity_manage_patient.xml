@@ -9,67 +9,50 @@
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="19dp"
+        android:layout_width="104dp"
+        android:layout_height="103dp"
         android:background="@drawable/ic_baseline_person_add_24"
         android:onClick="addPatientClick"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
-        app:layout_constraintEnd_toStartOf="@+id/button10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="92dp"
+        android:layout_width="104dp"
+        android:layout_height="102dp"
         android:background="@drawable/ic_baseline_person_remove_24"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="@+id/button9" />
+        tools:layout_editor_absoluteX="215dp"
+        tools:layout_editor_absoluteY="17dp" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="119dp"
-        android:layout_marginEnd="12dp"
         android:text="Add Patient"
         android:textColor="@color/darkBlue"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="119dp" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="16dp"
         android:text="Remove Patient"
         android:textColor="@color/darkBlue"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/patientListView"
-        app:layout_constraintEnd_toEndOf="@+id/button10" />
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="119dp" />
 
     <ListView
         android:id="@+id/patientListView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="@color/black"
+        android:layout_width="411dp"
+        android:layout_height="576dp"
         android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        android:backgroundTint="@color/black"
+        tools:layout_editor_absoluteY="154dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
