@@ -12,12 +12,10 @@ import java.util.List;
 
 public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView doctorLastName;
-        public TextView doctorFirstName;
+        public TextView doctorName;
         public ViewHolder(View itemView){
             super(itemView);
-            doctorLastName = (TextView) itemView.findViewById(R.id.doctorLastName);
-            doctorFirstName = (TextView)  itemView.findViewById(R.id.doctorFirstName);
+            doctorName = (TextView) itemView.findViewById(R.id.doctorName);
 
         }
     }
@@ -41,11 +39,12 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
     public void onBindViewHolder(DoctorAdapter.ViewHolder holder, int position){
         Doctor doctor = mDoctors.get(position);
 
-        TextView firstNameView = holder.doctorFirstName;
-        TextView lastNameView = holder.doctorLastName;
+        TextView nameView = holder.doctorName;
 
-        firstNameView.setText(doctor.getFirstName());
-        lastNameView.setText(doctor.getLastName());
+
+        nameView.setText(doctor.getLastName() + ", " + doctor.getFirstName());
+
+
     }
 
     @Override

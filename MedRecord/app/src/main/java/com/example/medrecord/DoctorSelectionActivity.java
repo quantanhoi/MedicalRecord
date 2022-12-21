@@ -23,10 +23,12 @@ public class DoctorSelectionActivity extends AppCompatActivity {
         doctorListRV.setAdapter(adapter);
         doctorListRV.setLayoutManager(new LinearLayoutManager(this));
 
+        //doctorListRV.setOnContextClickListener();
+
     }
 
 
-    public void onClick(View view){
+    public void onDoctorClick(View view){
         Intent intent = new Intent(this, DoctorActivity.class);
         startActivity(intent);
     }
