@@ -26,17 +26,17 @@
         android:text="Add Patient"
         android:textColor="@color/darkBlue"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/patientListView"
+        app:layout_constraintBottom_toTopOf="@+id/patientRecyclerView"
         app:layout_constraintStart_toStartOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
 
     <ListView
-        android:id="@+id/patientListView"
+        android:id="@+id/patientRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
-        android:backgroundTint="@color/black"
-        android:background="@color/black"
+        android:background="@color/lightcyan"
+        android:backgroundTint="@color/lightcyan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -19,7 +19,7 @@ public class ManagePatientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_patient);
-        patientList = findViewById(R.id.patientListView);
+        patientList = findViewById(R.id.patientRecyclerView);
         ArrayList<String> patListName = new ArrayList<>();
 
         for(int i = 0; i < Singleton_Patient_List.getInstance().getPatientsList().size(); i++) {

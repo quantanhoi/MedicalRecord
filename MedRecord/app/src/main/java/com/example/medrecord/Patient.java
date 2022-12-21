@@ -23,8 +23,8 @@ public class Patient {
     }
 
     private int id;
-    String m_firstName;
-    String m_lastName;
+    private String m_firstName;
+    private String m_lastName;
 
     public Patient(String firstName, String lastName) {
         this.m_firstName = firstName;

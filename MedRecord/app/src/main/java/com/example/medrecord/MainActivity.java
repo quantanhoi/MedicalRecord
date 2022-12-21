@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         openDoctorActivity();
     }
     public void openDoctorActivity() {
-        Intent intent = new Intent(this, DoctorActivity.class);
+        Intent intent = new Intent(this, DoctorSelectionActivity.class);
         startActivity(intent);
     }
     public void onButtonAdminClick(View view) {
