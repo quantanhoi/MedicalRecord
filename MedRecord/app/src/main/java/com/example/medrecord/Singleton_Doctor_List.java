@@ -6,9 +6,10 @@ public class Singleton_Doctor_List {
     private static Singleton_Doctor_List instance;
     private ArrayList<Doctor> doctorsList = new ArrayList<>();
     private Singleton_Doctor_List() {
-        doctorsList.add(new Doctor("D1", "E1"));
-        doctorsList.add(new Doctor("D2", "E2"));
-        doctorsList.add(new Doctor("D3", "E3"));
+        doctorsList.add(new Doctor("Hans", "Landa"));
+        doctorsList.add(new Doctor("Hans", "Fritz"));
+        doctorsList.add(new Doctor("Johannes", "van Beck"));
+        doctorsList.add(new Doctor("Dottie", "Wolmar"));
     }
     public static Singleton_Doctor_List getInstance() {
         if(instance == null) {

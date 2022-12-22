@@ -48,7 +48,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
     }
 
     @Override
-    public  int getItemCount(){
+    public int getItemCount(){
         return mDoctors.size();
     }
 }

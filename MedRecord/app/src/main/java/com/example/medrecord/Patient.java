@@ -16,6 +16,10 @@ public class Patient {
     public void setM_lastName(String m_lastName) {
         this.m_lastName = m_lastName;
     }
+
+    public String getName(){
+        return m_lastName + ", " + m_firstName;
+    }
     private static int idNummer = 100000;
 
     public int getId() {
