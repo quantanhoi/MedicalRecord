@@ -6,6 +6,12 @@ public class Doctor {
 
     private String firstName;
     private String lastName;
+
+    public int getImage() {
+        return image;
+    }
+
+    private int image;
     public ArrayList<Patient> getPatientList() {
         return patientList;
     }
@@ -13,9 +19,10 @@ public class Doctor {
     private ArrayList<Patient> patientList = new ArrayList<>();
     public Doctor() {
     }
-    public Doctor(String firstName, String lastName){
+    public Doctor(String firstName, String lastName, int image){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.image = image;
     }
 
     public void addPatient(Patient patient) {

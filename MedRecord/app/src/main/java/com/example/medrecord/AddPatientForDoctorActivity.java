@@ -55,6 +55,7 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
                 theDoc.addPatient(p);
             }
         }
+        finish();
     }
 
 }

@@ -52,6 +52,7 @@ public class DoctorActivity extends AppCompatActivity {
         PatientAdapter p_adap = new PatientAdapter(Doc.getPatientList());
         patientList.setAdapter(p_adap);
         patientList.setLayoutManager(new LinearLayoutManager(this));
+
 //        patientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
