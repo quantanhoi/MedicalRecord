@@ -47,7 +47,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorViewHolder> {
 
         holder.nameView.setText(mDoctors.get(position).getLastName() + ", " + mDoctors.get(position).getFirstName());
         holder.imageView.setImageResource(mDoctors.get(position).getImage());
-
+        holder.idView.setText("ID: " + mDoctors.get(position).getDocID());
 
     }
 

@@ -19,7 +19,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_toEndOf="@id/doctorImage"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/doctorID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="28dp"
         android:layout_toEndOf="@id/doctorImage"
         android:textColor="@color/black"
         android:textSize="20dp" />

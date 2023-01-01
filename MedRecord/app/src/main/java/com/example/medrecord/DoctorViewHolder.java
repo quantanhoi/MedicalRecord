@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     ImageView imageView;
-    TextView nameView;
+    TextView nameView, idView;
     public DoctorViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView = itemView.findViewById(R.id.doctorImage);
         nameView = itemView.findViewById(R.id.doctorName);
+        idView = itemView.findViewById(R.id.doctorID);
         itemView.setOnClickListener(this);
     }
 
