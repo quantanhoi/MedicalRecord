@@ -7,7 +7,7 @@
     android:paddingBottom="10dp">
 
     <TextView
-        android:id="@+id/patientName"
+        android:id="@+id/_patientName"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -16,29 +16,22 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/patientID"
+        android:id="@+id/_patientID"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/patientName"
+        android:layout_below="@id/_patientName"
         android:layout_marginTop="2dp"
         android:layout_marginStart="10dp"
         android:textSize="15dp"
         android:textAlignment="center"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/patientName"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="10dp"
-        android:text="ADD" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@id/patientID"
+        android:layout_below="@id/_patientID"
         android:layout_marginTop="7dp"
         android:background="#DAD8D8" />
 

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ViewHolder> {
+public class Adapter_Patient extends RecyclerView.Adapter<Adapter_Patient.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView patientName;
         public Button addButton;
@@ -24,7 +24,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ViewHold
 
     private List<Patient> mPatients;
 
-    public PatientAdapter(List<Patient> pats) {
+    public Adapter_Patient(List<Patient> pats) {
         mPatients = pats;
     }
 
@@ -46,7 +46,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.ViewHold
         TextView nameView = holder.patientName;
 
 
-        nameView.setText(patient.getM_lastName() + ", " + patient.getM_firstName());
+        nameView.setText(patient.getName());
 
     }
 

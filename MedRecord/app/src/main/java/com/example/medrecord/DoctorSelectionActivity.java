@@ -6,12 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class DoctorSelectionActivity extends AppCompatActivity implements DoctorAdapter.DoctorItemClickListener{
+public class DoctorSelectionActivity extends AppCompatActivity implements Adapter_Doctor.DoctorItemClickListener{
 
     ArrayList<Doctor> doctorList = Singleton_Doctor_List.getInstance().getDoctorsList();
 
@@ -25,7 +23,7 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Doctor
 
         RecyclerView doctorListRV = findViewById(R.id.AllDoctorsView);
         doctorListRV.setLayoutManager(new LinearLayoutManager(this));
-        doctorListRV.setAdapter(new DoctorAdapter(getApplicationContext(), doctorList, this));
+        doctorListRV.setAdapter(new Adapter_Doctor(getApplicationContext(), doctorList, this));
 
     }
 

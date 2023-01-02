@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class DoctorAdapter extends RecyclerView.Adapter<DoctorViewHolder> {
+public class Adapter_Doctor extends RecyclerView.Adapter<ViewHolder_Doctor> {
 
     Context context;
     List<Doctor> mDoctors;
@@ -19,31 +19,22 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorViewHolder> {
     }
     static DoctorItemClickListener mOnClickListener;
 
-    public DoctorAdapter(Context context, List<Doctor> mDoctors, DoctorItemClickListener mOnClickListener) {
+    public Adapter_Doctor(Context context, List<Doctor> mDoctors, DoctorItemClickListener mOnClickListener) {
         this.context = context;
         this.mDoctors = mDoctors;
-        DoctorAdapter.mOnClickListener = mOnClickListener;
+        Adapter_Doctor.mOnClickListener = mOnClickListener;
     }
 
     @NonNull
     @Override
-    public DoctorViewHolder onCreateViewHolder(ViewGroup parent, int ViewType){
-//        Context context = parent.getContext();
-//        LayoutInflater inflater = LayoutInflater.from(context);
-//
-//        View doctorView = inflater.inflate(R.layout.item_doctor, parent, false);
-//
-//        ViewHolder viewHolder = new ViewHolder(doctorView);
-
-        return new DoctorViewHolder(LayoutInflater.from(context).inflate(R.layout.item_doctor,parent,false));
+    public ViewHolder_Doctor onCreateViewHolder(ViewGroup parent, int ViewType){
+        return new ViewHolder_Doctor(LayoutInflater.from(context).inflate(R.layout.item_doctor,parent,false));
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(DoctorViewHolder holder, int position){
-        //Doctor doctor = mDoctors.get(position);
+    public void onBindViewHolder(ViewHolder_Doctor holder, int position){
 
-        //TextView nameView = holder.doctorName;
 
         holder.nameView.setText(mDoctors.get(position).getLastName() + ", " + mDoctors.get(position).getFirstName());
         holder.imageView.setImageResource(mDoctors.get(position).getImage());
