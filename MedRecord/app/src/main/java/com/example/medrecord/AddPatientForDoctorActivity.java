@@ -18,12 +18,14 @@ import java.util.Objects;
 
 public class AddPatientForDoctorActivity extends AppCompatActivity {
     RecyclerView patientToAddRV;
+    Adapter_AddPatientForDoctor adapter;
     ArrayList<Patient> patients;
     ArrayList<Doctor> docs;
     static Doctor theDoc;
 
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +35,6 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
         docs = Singleton_Doctor_List.getInstance().getDoctorsList();
 
         //Adapter_AddPatientForDoctor adapter = new Adapter_AddPatientForDoctor(patients);
-        patientToAddRV.setLayoutManager(new LinearLayoutManager(this));
-        Adapter_AddPatientForDoctor adapter = new Adapter_AddPatientForDoctor(patients);
-        patientToAddRV.setAdapter(adapter);
-//        adapter.getB().setOnClickListener(view -> {
-//            theDoc.addPatient(patients.get(adapter.getVh().getAdapterPosition()));
-//            Toast.makeText(this,"Patient added", Toast.LENGTH_SHORT);
-//        });
-
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             String doctorName = extras.getString("doctor");
@@ -51,11 +45,15 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
                 }
             }
         }
+        patientToAddRV.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new Adapter_AddPatientForDoctor(patients, theDoc);
+        patientToAddRV.setAdapter(adapter);
+
+
+
 
     }
-    public void onAddButtonClick(View view){
 
-    }
 
 }
 

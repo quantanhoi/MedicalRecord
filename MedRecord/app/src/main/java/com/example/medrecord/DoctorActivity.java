@@ -52,26 +52,9 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
             startActivity(intent);
         });
 
-//        findViewById(R.id.add_button).setOnClickListener(view ->{
-//            //Doc.addPatient(patientList[pos]);
-//        });
-        Log.d("TAG", "so far: ");
-
-//        ArrayList<String> patListName = new ArrayList<>();
-//        for(int i = 0; i < Doc.getPatientList().size(); i++) {
-//            patListName.add(Doc.getPatientList().get(i).getId() +" " + Doc.getPatientList().get(i).getM_firstName() + " " + Doc.getPatientList().get(i).getM_lastName());
-//        }
 
 
     }
-
-    public void onAddPatientClick(View view) {
-        Intent intent = new Intent(this, AddPatientForDoctorActivity.class);
-        intent.putExtra("doctor", Doc.getName());
-        startActivity(intent);
-    }
-
-
 
 
 

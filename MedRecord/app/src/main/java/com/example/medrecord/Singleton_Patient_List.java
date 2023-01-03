@@ -26,4 +26,11 @@ public class Singleton_Patient_List {
     public ArrayList<Patient> getPatientsList() {
         return patientsList;
     }
+    public Patient findPatientByID(int ID){
+        for(Patient pat: patientsList){
+            if(pat.getId() == ID) return pat;
+        }
+        return null;
+
+    }
 }
