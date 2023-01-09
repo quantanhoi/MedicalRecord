@@ -31,6 +31,7 @@ public class ViewHolder_AddPatientsForDoctor extends RecyclerView.ViewHolder imp
 
     public void onClick(Patient patient) {
         doctor.addPatient(patient);
+        patient.setPersonalDoctorId(doctor.getDocID());
         Toast.makeText(buttonView.getContext(), "Patient added successfully", Toast.LENGTH_SHORT).show();
     }
 

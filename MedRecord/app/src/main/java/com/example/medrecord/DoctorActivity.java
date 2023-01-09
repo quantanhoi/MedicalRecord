@@ -18,6 +18,7 @@ import java.util.Objects;
 public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_Manages_Patient.PatientItemClickListener{
     public static Doctor Doc ;
     ArrayList<Patient> patientList;
+    RecyclerView patientListRV;
 
 
     @SuppressLint("MissingInflatedId")
@@ -41,7 +42,7 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
 
         patientList = Doc.getPatientList();
 
-        RecyclerView patientListRV = findViewById(R.id.addedPatientView);
+        patientListRV = findViewById(R.id.addedPatientView);
         patientListRV.setLayoutManager(new LinearLayoutManager(this));
         patientListRV.setAdapter(new Adapter_Doctor_Manages_Patient(getApplicationContext(),patientList,this));
 
@@ -64,5 +65,14 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
         Intent intent = new Intent(this, DoctorActivity.class);
         intent.putExtra("doctorName", patientName);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // update the data in the RecyclerView
+        patientList = Doc.getPatientList();
+        patientListRV.setAdapter(new Adapter_Doctor_Manages_Patient(getApplicationContext(),patientList,this));
+        patientListRV.getAdapter().notifyDataSetChanged();
     }
 }

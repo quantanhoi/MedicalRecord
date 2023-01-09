@@ -50,6 +50,13 @@ public class Singleton_Doctor_List {
         return doctorsList;
     }
 
+    public Doctor getDoctorById(int ID){
+        for (Doctor d : instance.doctorsList){
+            if (d.getDocID() == ID) return d;
+        }
+        return null;
+    }
+
     public void saveDoctorList() {
         JSONArray doctorList = new JSONArray();
         for (Doctor doc : doctorsList){

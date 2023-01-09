@@ -46,6 +46,8 @@ public class Adapter_AddPatientForDoctor extends RecyclerView.Adapter<ViewHolder
             @Override
             public void onClick(View view) {
                 holder.onClick(mPatients.get(position));
+                mPatients.remove(position);
+                notifyItemRemoved(position);
             }
         });
 

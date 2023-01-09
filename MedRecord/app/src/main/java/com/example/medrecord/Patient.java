@@ -30,9 +30,20 @@ public class Patient {
     private String m_firstName;
     private String m_lastName;
 
+    public int getPersonalDoctorId() {
+        return personalDoctorId;
+    }
+
+    public void setPersonalDoctorId(int personalDoctorId) {
+        this.personalDoctorId = personalDoctorId;
+    }
+
+    private int personalDoctorId;
+
     public Patient(String firstName, String lastName) {
         this.m_firstName = firstName;
         this.m_lastName = lastName;
+        this.personalDoctorId = 0;
 
         id = idNummer;
         idNummer++;
