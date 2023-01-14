@@ -22,6 +22,7 @@ public class ViewHolder_Doctor_Manages_Patients extends RecyclerView.ViewHolder 
     @Override
     public void onClick(View view) {
         int position = getAdapterPosition();
+        Adapter_Doctor_Manages_Patient.mOnClickListener.onPatientClick(position);
 
     }
 }

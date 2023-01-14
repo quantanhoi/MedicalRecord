@@ -62,8 +62,11 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
     @Override
     public void onPatientClick(int position) {
         String patientName = patientList.get(position).getName();
-        Intent intent = new Intent(this, DoctorActivity.class);
-        intent.putExtra("doctorName", patientName);
+        String doctorName = Doc.getName();
+
+        Intent intent = new Intent(this, Doctor_Manages_Patient_Activity.class);
+        intent.putExtra("patientName", patientName);
+        intent.putExtra("doctorName", doctorName);
         startActivity(intent);
     }
 

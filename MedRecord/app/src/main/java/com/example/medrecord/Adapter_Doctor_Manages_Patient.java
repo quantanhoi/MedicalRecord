@@ -26,7 +26,7 @@ public class Adapter_Doctor_Manages_Patient extends RecyclerView.Adapter<ViewHol
     @NonNull
     @Override
     public ViewHolder_Doctor_Manages_Patients onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder_Doctor_Manages_Patients(LayoutInflater.from(context).inflate(R.layout.item_doctor_manages_patient,parent,false));
+        return new ViewHolder_Doctor_Manages_Patients(LayoutInflater.from(context).inflate(R.layout.item_patient_of_doctor,parent,false));
     }
 
     @Override
