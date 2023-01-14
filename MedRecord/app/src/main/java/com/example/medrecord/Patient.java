@@ -30,6 +30,8 @@ public class Patient {
     private String m_firstName;
     private String m_lastName;
 
+    private int image;
+
     public int getPersonalDoctorId() {
         return personalDoctorId;
     }
@@ -40,9 +42,14 @@ public class Patient {
 
     private int personalDoctorId;
 
-    public Patient(String firstName, String lastName) {
+    public int getImage() {
+        return image;
+    }
+
+    public Patient(String firstName, String lastName, int image) {
         this.m_firstName = firstName;
         this.m_lastName = lastName;
+        this.image = image;
         this.personalDoctorId = 0;
 
         id = idNummer;

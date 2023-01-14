@@ -5,11 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-
-import java.util.ArrayList;
 
 public class AddPatientActivity extends AppCompatActivity {
     @Override
@@ -28,7 +24,8 @@ public class AddPatientActivity extends AppCompatActivity {
         String firstName = edText.getText().toString();
         edText = findViewById(R.id.editTextPersonLastName);
         String lastName = edText.getText().toString();
-        Singleton_Patient_List.getInstance().addNewPatient(new Patient(firstName, lastName));
+        int image = R.drawable.p1;
+        Singleton_Patient_List.getInstance().addNewPatient(new Patient(firstName, lastName, image));
         finish();
     }
     public void openManagePatientActivity() {

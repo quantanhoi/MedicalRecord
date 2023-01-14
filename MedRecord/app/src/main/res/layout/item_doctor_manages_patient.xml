@@ -6,11 +6,18 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
+    <ImageView
+        android:id="@+id/patientImageSmall"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
     <TextView
         android:id="@+id/_patientName"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/patientImageSmall"
         android:textSize="18dp"
         android:textStyle="bold" />
 
@@ -19,6 +26,7 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/_patientName"
+        android:layout_toEndOf="@id/patientImageSmall"
         android:layout_marginTop="2dp"
         android:layout_marginStart="10dp"
         android:textSize="15dp"

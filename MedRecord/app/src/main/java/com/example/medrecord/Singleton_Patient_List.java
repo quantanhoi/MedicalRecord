@@ -6,9 +6,9 @@ public class Singleton_Patient_List {
     private static Singleton_Patient_List instance;
     private ArrayList<Patient> patientsList = new ArrayList<>();
     private Singleton_Patient_List() {
-        patientsList.add(new Patient("Trung", "Thieu"));
-        patientsList.add(new Patient("Jonas", "Herzberger"));
-        patientsList.add(new Patient("Jane", "Doe"));
+        patientsList.add(new Patient("Trung", "Thieu", R.drawable.p2));
+        patientsList.add(new Patient("Jonas", "Herzberger", R.drawable.p3));
+        patientsList.add(new Patient("Jane", "Doe", R.drawable.p4));
     }
     public static Singleton_Patient_List getInstance() {
         if(instance == null) {

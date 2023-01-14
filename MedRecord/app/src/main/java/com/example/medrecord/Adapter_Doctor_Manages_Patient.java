@@ -33,6 +33,7 @@ public class Adapter_Doctor_Manages_Patient extends RecyclerView.Adapter<ViewHol
     public void onBindViewHolder(@NonNull ViewHolder_Doctor_Manages_Patients holder, int position) {
         holder.patIDView.setText("ID: " + mPatients.get(position).getId());
         holder.patNameView.setText(mPatients.get(position).getName());
+        holder.patientViewSmall.setImageResource(mPatients.get(position).getImage());
     }
 
     @Override
