@@ -29,7 +29,7 @@ public class Doctor_Manages_Patient_Activity extends AppCompatActivity {
             String doctorName = extras.getString("doctorName");
             String patientName = extras.getString("patientName");
             ArrayList<Doctor> doctorList = Singleton_Doctor_List.getInstance().getDoctorsList();
-            ArrayList<Patient> patientsList = Singleton_Patient_List.getInstance().getPatientsList();
+
 
             for (Doctor d: doctorList){
                 if(Objects.equals(d.getName(), doctorName)){
@@ -37,7 +37,7 @@ public class Doctor_Manages_Patient_Activity extends AppCompatActivity {
                     break;
                 }
             }
-
+            ArrayList<Patient> patientsList = theDoc.getPatientList();
             for (Patient p: patientsList){
                 if(Objects.equals(p.getName(), patientName)){
                     thePatient = p;
@@ -48,7 +48,7 @@ public class Doctor_Manages_Patient_Activity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.doctorManagePatient_TabLayout);
         viewPager2 = findViewById(R.id.doctorManagesPatient_ViewPager);
-        myViewPagerAdapter = new Adapter_MyViewPager(this);
+        myViewPagerAdapter = new Adapter_MyViewPager(this, thePatient);
         viewPager2.setAdapter(myViewPagerAdapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
