@@ -56,7 +56,7 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
         String text = patientNameSearch.getText().toString();
         if(text == "") {
             adapter = new Adapter_AddPatientForDoctor(patients, theDoc);
-            patientToAddRV.setAdapter(adapter);8
+            patientToAddRV.setAdapter(adapter);
             return;
         }
         ArrayList<Patient> tempPatientList = new ArrayList<>();
