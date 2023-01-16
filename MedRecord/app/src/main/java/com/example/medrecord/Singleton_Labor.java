@@ -10,7 +10,9 @@ public class Singleton_Labor {
 
     private ArrayList<Patient> mPatients = new ArrayList<>();
 
-    private Singleton_Labor(){};
+    private Singleton_Labor(){
+        mPatients = getPatientsSentToLab();
+    };
 
     public static Singleton_Labor getLabor(){
         if(labor == null) {
@@ -25,5 +27,12 @@ public class Singleton_Labor {
 
     public void addPatient(Patient p){
         mPatients.add(p);
+    }
+    private ArrayList<Patient> getPatientsSentToLab(){
+        ArrayList<Patient> patients = new ArrayList<>();
+        for(Patient p : Singleton_Patient_List.getInstance().getPatientsList()){
+            if(p.isToLab()) patients.add(p);
+        }
+        return patients;
     }
 }
