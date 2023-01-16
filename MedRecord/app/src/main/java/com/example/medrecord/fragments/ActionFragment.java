@@ -21,6 +21,7 @@ import com.example.medrecord.R;
 import com.example.medrecord.Singleton_Labor;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ActionFragment extends Fragment {
 
@@ -44,7 +45,7 @@ public class ActionFragment extends Fragment {
         sendToLab = view.findViewById(R.id.send_to_lab);
 
         if(patient.isToLab()) {
-            sendToLab.setClickable(false);
+            sendToLab.setEnabled(false);
             sendToLab.setChecked(true);
         }
 
@@ -57,6 +58,7 @@ public class ActionFragment extends Fragment {
                 else {
                     sendToLab.setEnabled(true);
                     patient.setToLab(true);
+                    sendToLab.setEnabled(false);
                 }
             }
             else{
@@ -64,13 +66,13 @@ public class ActionFragment extends Fragment {
                 patient.setToLab(true);
             }
             Toast.makeText(getContext(),"Changes saved", Toast.LENGTH_SHORT).show();
-            //refreshMyFragment();
+            refreshMyFragment();
         });
         // Inflate the layout for this fragment
         return view;
     }
     public void refreshMyFragment() {
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction ft = requireActivity().getSupportFragmentManager().beginTransaction();
         ft.detach(this).attach(this).commit();
 
     }

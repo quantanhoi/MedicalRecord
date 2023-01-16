@@ -33,4 +33,13 @@ public class Singleton_Patient_List {
         return null;
 
     }
+    public ArrayList<Patient> getAvailablePatients(){
+        ArrayList<Patient> patients = new ArrayList<>();
+        for(Patient p: patientsList){
+            if(Singleton_Doctor_List.getInstance().getDoctorById(p.getPersonalDoctorId()) == null){
+                patients.add(p);
+            }
+        }
+        return patients;
+    }
 }
