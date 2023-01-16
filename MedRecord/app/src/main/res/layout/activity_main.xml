@@ -86,17 +86,17 @@
         android:background="@drawable/ic_baseline_local_hospital_24"
         android:onClick="onButtonDoctorClick"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/Labor_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Labor_button"
         android:layout_width="95dp"
         android:layout_height="91dp"
         android:layout_marginEnd="86dp"
         android:background="@drawable/ic_baseline_local_pharmacy_24"
-        android:onClick="onButtonPharmacyClick"
+        android:onClick="onButtonLaborClick"
         app:layout_constraintBottom_toBottomOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button2"

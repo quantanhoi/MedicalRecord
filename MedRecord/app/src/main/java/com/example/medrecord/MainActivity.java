@@ -27,5 +27,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AdminActivity.class);
         startActivity(intent);
     }
+    public void onButtonLaborClick(View view){
+        Intent intent = new Intent(this, LaborActivity.class);
+        startActivity(intent);
+    }
 
 }
