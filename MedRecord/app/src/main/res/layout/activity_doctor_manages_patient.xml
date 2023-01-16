@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightcyan"
     tools:context=".Doctor_Manages_Patient_Activity">
 
     <com.google.android.material.tabs.TabLayout
@@ -32,10 +33,19 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/doctorManagesPatient_ViewPager"
-        android:layout_below="@+id/doctorManagePatient_TabLayout">
+        android:layout_width="410dp"
+        android:layout_height="639dp"
+        android:layout_below="@+id/doctorManagePatient_TabLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="42dp">
 
     </androidx.viewpager2.widget.ViewPager2>
 

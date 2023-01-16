@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,10 +50,25 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
         adapter = new Adapter_AddPatientForDoctor(patients, theDoc);
         patientToAddRV.setAdapter(adapter);
 
-
-
-
     }
+    public void onSearchClick (View view) {
+        EditText patientNameSearch = findViewById(R.id.editTextTextPersonName);
+        String text = patientNameSearch.getText().toString();
+        if(text == "") {
+            adapter = new Adapter_AddPatientForDoctor(patients, theDoc);
+            patientToAddRV.setAdapter(adapter);8
+            return;
+        }
+        ArrayList<Patient> tempPatientList = new ArrayList<>();
+        for(Patient p : Singleton_Patient_List.getInstance().getPatientsList()) {
+            if(p.getM_firstName().contains(text) || p.getM_lastName().contains(text)) {
+                tempPatientList.add(p);
+            }
+        }
+        adapter = new Adapter_AddPatientForDoctor(tempPatientList, theDoc);
+        patientToAddRV.setAdapter(adapter);
+    }
+
 
 
 }

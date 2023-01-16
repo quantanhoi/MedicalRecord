@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightcyan"
     tools:context=".AddPatientForDoctorActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Patient Name"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,6 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:text="Search"
+        android:textColorHint="@color/black"
+        android:onClick="onSearchClick"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
