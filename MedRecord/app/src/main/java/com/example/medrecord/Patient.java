@@ -1,5 +1,7 @@
 package com.example.medrecord;
 
+import java.util.ArrayList;
+
 public class Patient {
     public String getM_firstName() {
         return m_firstName;
@@ -35,6 +37,10 @@ public class Patient {
     private int age;
     private String gender;
     private String birthday;
+    private ArrayList<Diagnose>medicalHistory ;
+    public void addDiagnose(Diagnose d){
+        medicalHistory.add(d);
+    }
 
     public int getPersonalDoctorId() {
         return personalDoctorId;
@@ -65,13 +71,14 @@ public class Patient {
         this.m_lastName = lastName;
         this.image = R.drawable.default_p;
 
-        this.image = image;
+        //this.image = image;
         this.toLab = false;
 
         this.personalDoctorId = 0;
         this.age = age;
         this.gender = gender;
         this.birthday = birthday;
+        this.medicalHistory = new ArrayList<>();
 
         id = idNummer;
         idNummer++;

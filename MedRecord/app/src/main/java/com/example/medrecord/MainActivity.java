@@ -31,5 +31,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LaborActivity.class);
         startActivity(intent);
     }
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+    }
 
 }

@@ -28,9 +28,6 @@ public class Singleton_Labor {
         return labor;
     }
 
-    public void addPatient(Patient p){
-        mPatients.add(p);
-    }
     private ArrayList<Patient> getPatientsSentToLab(){
         ArrayList<Patient> patients = new ArrayList<>();
         for(Patient p : Singleton_Patient_List.getInstance().getPatientsList()){

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter date (YYYY-MM-DD)" />
+
+    <EditText
+        android:id="@+id/Leukozyten_pro_nl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Leukozyten pro nl" />
+
+    <EditText
+        android:id="@+id/Lymphozyten_in_Prozent_der_Leuko"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Lymphozyten in Prozent der Leuko" />
+
+    <EditText
+        android:id="@+id/Lymphozyten_absolut_in_100_pro_nl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Lymphozyten absolut in 100 pro nl" />
+
+    <ImageView
+        android:id="@+id/DignoseImage"
+        android:layout_width="wrap_content"
+        android:layout_height="245dp"
+        android:src="@drawable/dignose01" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="saveDiagnose"
+        android:text="Save"
+        android:layout_marginLeft="150dp"/>
+
+</LinearLayout>

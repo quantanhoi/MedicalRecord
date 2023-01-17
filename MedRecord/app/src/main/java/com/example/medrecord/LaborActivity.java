@@ -36,6 +36,18 @@ public class LaborActivity extends AppCompatActivity implements  Adapter_Patient
 
     @Override
     public void onPatientClick(int position) {
+        String patientName = patientList.get(position).getName();
+        Intent intent = new Intent(this, Lab_Diagnose_Patient_Activity.class);
+        intent.putExtra("patientName", patientName);
+        startActivity(intent);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // update the data in the RecyclerView
+        patientList = theLab.getmPatients();
+        patientListRV.setAdapter(new Adapter_Patient(getApplicationContext(),patientList,this));
+        patientListRV.getAdapter().notifyDataSetChanged();
     }
 }

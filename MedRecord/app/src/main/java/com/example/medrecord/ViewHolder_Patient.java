@@ -22,5 +22,6 @@ public class ViewHolder_Patient extends RecyclerView.ViewHolder implements View.
     @Override
     public void onClick(View view) {
         int position = getAdapterPosition();
+        Adapter_Patient.mOnClickListener.onPatientClick(position);
     }
 }
