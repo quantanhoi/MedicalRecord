@@ -48,5 +48,9 @@ public class Doctor {
         return lastName + ", " + firstName;
     }
 
+    public void removePatientFromList(Patient p){
+        patientList.remove(p);
+    }
+
 
 }

@@ -22,6 +22,7 @@ public class Singleton_Labor {
                 }
             }
         }
+        labor.checkReleasedPatients();
         return labor;
     }
 
@@ -31,8 +32,19 @@ public class Singleton_Labor {
     private ArrayList<Patient> getPatientsSentToLab(){
         ArrayList<Patient> patients = new ArrayList<>();
         for(Patient p : Singleton_Patient_List.getInstance().getPatientsList()){
-            if(p.isToLab()) patients.add(p);
+            if(p.isToLab() && isPatientInList(p)) patients.add(p);
         }
         return patients;
+    }
+    public boolean isPatientInList(Patient p){
+        for(Patient pat: Singleton_Patient_List.getInstance().getPatientsList()){
+            if(p == pat) return true;
+        }
+        return false;
+    }
+    private void checkReleasedPatients(){
+        for(Patient p: mPatients){
+            if(!isPatientInList(p)) mPatients.remove(p);
+        }
     }
 }

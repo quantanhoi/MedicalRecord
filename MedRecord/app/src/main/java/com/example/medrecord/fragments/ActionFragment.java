@@ -16,9 +16,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.example.medrecord.Doctor;
 import com.example.medrecord.Patient;
 import com.example.medrecord.R;
+import com.example.medrecord.Singleton_Doctor_List;
 import com.example.medrecord.Singleton_Labor;
+import com.example.medrecord.Singleton_Patient_List;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -51,6 +54,13 @@ public class ActionFragment extends Fragment {
 
         release = view.findViewById(R.id.release);
         saveChanges.setOnClickListener(view1 -> {
+            if (release.isChecked()){
+                Toast.makeText(getContext(),"Patients shall be removed", Toast.LENGTH_SHORT).show();
+                Doctor hausarzt = Singleton_Doctor_List.getInstance().getDoctorById(patient.getPersonalDoctorId());
+                hausarzt.removePatientFromList(patient);
+                Singleton_Patient_List.getInstance().getPatientsList().remove(patient);
+                requireActivity().finish();
+            }
             if(sendToLab.isChecked()){
                 if (patient.isToLab()) {
                     sendToLab.setEnabled(false);
