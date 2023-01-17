@@ -1,5 +1,7 @@
 package com.example.medrecord;
 
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class AddPatientActivity extends AppCompatActivity {
     @Override
@@ -33,7 +36,10 @@ public class AddPatientActivity extends AppCompatActivity {
         edText = findViewById(R.id.editTextPersonLastName);
         String lastName = edText.getText().toString();
         Spinner spinner = findViewById(R.id.spinner);
-        if(edText.getText().toString().isEmpty()) {return;}
+        if(edText.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please fill all the information", Toast.LENGTH_SHORT).show();
+            return;
+        }
         //must use .isEmpty, == "" won't work
         //return when no string get input
         //TODO: make a pop up notification saying that input error
@@ -42,6 +48,7 @@ public class AddPatientActivity extends AppCompatActivity {
         String patientBirthday = edText.getText().toString();
         String patientGender = spinner.getSelectedItem().toString();
         if(firstName.isEmpty() || lastName.isEmpty()|| patientBirthday.isEmpty() || patientGender.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please fill all the information", Toast.LENGTH_SHORT).show();
             return;
         }
         //TODO: also make a pop up notification for this

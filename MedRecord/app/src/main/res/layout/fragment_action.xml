@@ -15,10 +15,12 @@
             android:id="@+id/send_to_lab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Send to Lab" />
 
         <CheckBox
             android:id="@+id/release"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Release" />
