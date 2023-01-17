@@ -19,10 +19,12 @@ public class Singleton_Labor {
             synchronized (Singleton_Labor.class) {
                 if(labor == null) {
                     labor = new Singleton_Labor();
+                    return labor;
                 }
             }
         }
         labor.checkReleasedPatients();
+        labor.checkAddedPatient();
         return labor;
     }
 
@@ -46,5 +48,17 @@ public class Singleton_Labor {
         for(Patient p: mPatients){
             if(!isPatientInList(p)) mPatients.remove(p);
         }
+    }
+    private void checkAddedPatient(){
+        for(Patient p : Singleton_Patient_List.getInstance().getPatientsList()){
+            if(p.isToLab() && isPatientInList(p) && !isPatientInLabor(p)) mPatients.add(p);
+        }
+    }
+
+    private boolean isPatientInLabor(Patient p){
+        for(Patient pat: mPatients){
+            if(p == pat) return true;
+        }
+        return false;
     }
 }
