@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.medrecord.Patient;
 import com.example.medrecord.R;
@@ -35,6 +36,11 @@ public class InfoFragment extends Fragment {
         } else {
             patImg.setImageResource(R.drawable.p1);
         }
+        TextView patientInfo = view.findViewById(R.id.textView11);
+        patientInfo.setText("First Name: " + patient.getM_firstName()
+                + "\nLast Name: " + patient.getM_lastName()
+                +"\nBirthday: " + patient.getBirthday()
+        + "\nGender: " + patient.getGender());
         return view;
     }
 }

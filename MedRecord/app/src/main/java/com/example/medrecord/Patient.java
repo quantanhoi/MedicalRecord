@@ -8,7 +8,8 @@ public class Patient {
     public String getM_lastName() {
         return m_lastName;
     }
-
+    public String getBirthday() {return birthday;}
+    public String getGender() {return gender;}
     public void setM_firstName(String m_firstName) {
         this.m_firstName = m_firstName;
     }
@@ -31,6 +32,9 @@ public class Patient {
     private String m_lastName;
 
     private int image;
+    private int age;
+    private String gender;
+    private String birthday;
 
     public int getPersonalDoctorId() {
         return personalDoctorId;
@@ -46,11 +50,14 @@ public class Patient {
         return image;
     }
 
-    public Patient(String firstName, String lastName, int image) {
+    public Patient(String firstName, String lastName ,String birthday, String gender ) {
         this.m_firstName = firstName;
         this.m_lastName = lastName;
-        this.image = image;
+        this.image = R.drawable.default_p;
         this.personalDoctorId = 0;
+        this.age = age;
+        this.gender = gender;
+        this.birthday = birthday;
 
         id = idNummer;
         idNummer++;

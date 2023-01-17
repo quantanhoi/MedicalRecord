@@ -4,15 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class AddPatientActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_patient);
-
+        String gender[] = {"Male", "Female", "Divers"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, gender);
+        Spinner spinner = findViewById(R.id.spinner);
+        spinner.setAdapter(adapter);
     }
     @Override
     protected void onResume() {
@@ -24,8 +32,21 @@ public class AddPatientActivity extends AppCompatActivity {
         String firstName = edText.getText().toString();
         edText = findViewById(R.id.editTextPersonLastName);
         String lastName = edText.getText().toString();
-        int image = R.drawable.p1;
-        Singleton_Patient_List.getInstance().addNewPatient(new Patient(firstName, lastName, image));
+        Spinner spinner = findViewById(R.id.spinner);
+        if(edText.getText().toString().isEmpty()) {return;}
+        //must use .isEmpty, == "" won't work
+        //return when no string get input
+        //TODO: make a pop up notification saying that input error
+
+        edText = findViewById(R.id.editBirthday);
+        String patientBirthday = edText.getText().toString();
+        String patientGender = spinner.getSelectedItem().toString();
+        if(firstName.isEmpty() || lastName.isEmpty()|| patientBirthday.isEmpty() || patientGender.isEmpty()) {
+            return;
+        }
+        //TODO: also make a pop up notification for this
+
+        Singleton_Patient_List.getInstance().addNewPatient(new Patient(firstName, lastName, patientBirthday, patientGender));
         finish();
     }
     public void openManagePatientActivity() {

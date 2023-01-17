@@ -3,10 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightcyan"
     tools:context=".fragments.InfoFragment">
 
     <ScrollView
         android:layout_width="match_parent"
+        android:fillViewport="true"
         android:layout_height="match_parent">
 
         <!-- Your other views go here -->
@@ -14,12 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="This is some text" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -30,6 +26,15 @@
                 android:layout_marginTop="36dp"
                 android:layout_marginEnd="235dp"
                 tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:text="Text View"
+                android:textColor="@color/black"
+                android:textSize="23dp" />
         </LinearLayout>
 
     </ScrollView>
