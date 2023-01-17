@@ -27,7 +27,6 @@ public class LaborActivity extends AppCompatActivity implements  Adapter_Patient
         patientListRV.setLayoutManager(new LinearLayoutManager(this));
         patientListRV.setAdapter(new Adapter_Patient(getApplicationContext(),patientList,this));
 
-
 //        findViewById(R.id.add_patient_button).setOnClickListener(view -> {
 //            Intent intent = new Intent(this, AddPatientForDoctorActivity.class);
 //            intent.putExtra("doctor", Doc.getName());
