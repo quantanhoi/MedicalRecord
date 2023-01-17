@@ -23,7 +23,7 @@ public class Adapter_MyViewPager extends FragmentStateAdapter {
             case 1:
                 return new MedicalHistoryFragment();
             case 2:
-                return new ActionFragment();
+                return new ActionFragment(patient);
             default:
                 return new InfoFragment(patient);
         }

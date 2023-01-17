@@ -32,7 +32,7 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_patient_for_doctor);
         patientToAddRV = findViewById(R.id.toAddPatientList);
-        patients = Singleton_Patient_List.getInstance().getPatientsList();
+        patients = Singleton_Patient_List.getInstance().getAvailablePatients();
         docs = Singleton_Doctor_List.getInstance().getDoctorsList();
 
         //Adapter_AddPatientForDoctor adapter = new Adapter_AddPatientForDoctor(patients);

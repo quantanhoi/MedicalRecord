@@ -46,6 +46,16 @@ public class Patient {
 
     private int personalDoctorId;
 
+    public boolean isToLab() {
+        return toLab;
+    }
+
+    public void setToLab(boolean toLab) {
+        this.toLab = toLab;
+    }
+
+    private boolean toLab;
+
     public int getImage() {
         return image;
     }
@@ -54,6 +64,10 @@ public class Patient {
         this.m_firstName = firstName;
         this.m_lastName = lastName;
         this.image = R.drawable.default_p;
+
+        this.image = image;
+        this.toLab = false;
+
         this.personalDoctorId = 0;
         this.age = age;
         this.gender = gender;

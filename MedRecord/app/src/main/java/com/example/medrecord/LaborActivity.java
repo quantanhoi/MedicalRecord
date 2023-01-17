@@ -11,7 +11,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 public class LaborActivity extends AppCompatActivity implements  Adapter_Patient.PatientItemClickListener{
-    private Singleton_Labor theLab = Singleton_Labor.getLabor();
+    private Singleton_Labor theLab ;
     ArrayList<Patient> patientList;
     RecyclerView patientListRV;
     @SuppressLint("MissingInflatedId")
@@ -20,6 +20,7 @@ public class LaborActivity extends AppCompatActivity implements  Adapter_Patient
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_labor);
 
+        theLab = Singleton_Labor.getLabor();
         patientList = theLab.getmPatients();
 
         patientListRV = findViewById(R.id.patients_labor);

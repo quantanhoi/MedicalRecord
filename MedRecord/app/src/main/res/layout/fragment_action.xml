@@ -5,5 +5,32 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ActionFragment">
 
+    <LinearLayout
+        android:id="@+id/action_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <CheckBox
+            android:id="@+id/send_to_lab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send to Lab" />
+
+        <CheckBox
+            android:id="@+id/release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Release" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/save_changes_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/action_linearLayout"
+        android:text="SAVE CHANGES"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
