@@ -10,4 +10,5 @@
     <color name="lightcyan">#E0FFFF</color>
     <color name="darkBlue">#00008b</color>
     <color name="aqua">	#00FFFF</color>
+    <color name="error">#ff3333</color>
 </resources>

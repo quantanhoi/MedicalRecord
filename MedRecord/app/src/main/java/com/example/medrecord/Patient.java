@@ -37,6 +37,7 @@ public class Patient {
     private int age;
     private String gender;
     private String birthday;
+    private Appointment appointment;
     private ArrayList<Diagnose>medicalHistory ;
     public void addDiagnose(Diagnose d){
         medicalHistory.add(d);
@@ -44,6 +45,10 @@ public class Patient {
 
     public int getPersonalDoctorId() {
         return personalDoctorId;
+    }
+
+    public void createAppointment(int day, int month, int year, String title, String note) {
+        this.appointment = new Appointment(day, month, year, title, note);
     }
 
     public void setPersonalDoctorId(int personalDoctorId) {
