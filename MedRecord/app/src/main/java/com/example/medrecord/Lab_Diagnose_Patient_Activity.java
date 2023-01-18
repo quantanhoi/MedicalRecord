@@ -51,7 +51,7 @@ public class Lab_Diagnose_Patient_Activity extends AppCompatActivity {
         EditText tmpAbs = (EditText) findViewById(R.id.Lymphozyten_absolut_in_100_pro_nl);
         Lymphozyten_absolut_in_100_pro_nl = Double.parseDouble(tmpAbs.getText().toString());
 
-        int image = R.id.DignoseImage;
+        int image = R.drawable.dignose01;
         patient.addDiagnose(new Diagnose(patient.getId(), image, date, Leukozyten_pro_nl,
                 Lymphozyten_in_Prozent_der_Leuko, Lymphozyten_absolut_in_100_pro_nl));
 

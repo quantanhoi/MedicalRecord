@@ -24,11 +24,16 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String FILE_NAME = "doctors.json";
     private static final String FILE_NAME_2 = "patients.json";
+    private static boolean hasRead = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        readJSONFiles(this);
+
+        if(!hasRead) {
+            readJSONFiles(this);
+            hasRead = true;
+        }
     }
     public void onButtonDoctorClick(View view) {
         openDoctorActivity();
@@ -142,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     diagnoseDetails.put("Leukozyten_pro_nl", diagnose.Leukozyten_pro_nl);
                     diagnoseDetails.put("Lymphozyten_in_Prozent_der_Leuko", diagnose.Lymphozyten_in_Prozent_der_Leuko);
                     diagnoseDetails.put("Lymphozyten_absolut_in_100_pro_nl", diagnose.Lymphozyten_absolut_in_100_pro_nl);
+                    diagnoseDetails.put("doctorPrescription", diagnose.doctorPrescription);
 
                     medicalHistory.put(diagnoseDetails);
                 }
@@ -182,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
             reader.close();
             JSONArray doctorList = new JSONArray(builder.toString());
             for (int i = 0; i < doctorList.length(); i++) {
-                if(Singleton_Doctor_List.getInstance().getDoctorsList().size() == doctorList.length()) break;
+                //if(Singleton_Doctor_List.getInstance().getDoctorsList().size() == doctorList.length()) break;
                 JSONObject doctor = doctorList.getJSONObject(i);
                 JSONObject doctorDetails = doctor.getJSONObject("doctor");
                 int docID = (doctorDetails.getInt("docID"));
@@ -191,7 +197,9 @@ public class MainActivity extends AppCompatActivity {
                 int image = doctorDetails.getInt("docImage");
                 Doctor.setDoctorID((doctorDetails.getInt("staticDocID")));
 
-                Singleton_Doctor_List.getInstance().addNewDoctor(new Doctor(docID, firstName, lastName, image));
+                Doctor theDoc = new Doctor(docID, firstName, lastName, image);
+                if(!Singleton_Doctor_List.getInstance().isDoctorAlreadyInList(theDoc))
+                    Singleton_Doctor_List.getInstance().addNewDoctor(theDoc);
             }
         } catch (IOException | JSONException e){
             e.printStackTrace();
@@ -211,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
             reader.close();
             JSONArray patientList = new JSONArray(builder.toString());
             for (int i = 0; i < patientList.length(); i++) {
-                if(Singleton_Patient_List.getInstance().getPatientsList().size() == patientList.length()) break;
+                //if(Singleton_Patient_List.getInstance().getPatientsList().size() == patientList.length()) break;
                 JSONObject patient = patientList.getJSONObject(i);
                 JSONObject patientDetails = patient.getJSONObject("patient");
 
@@ -235,11 +243,14 @@ public class MainActivity extends AppCompatActivity {
                     int Leukozyten_pro_nl = diagnoseDetails.getInt("Leukozyten_pro_nl");
                     int Lymphozyten_in_Prozent_der_Leuko = diagnoseDetails.getInt("Lymphozyten_in_Prozent_der_Leuko");
                     int Lymphozyten_absolut_in_100_pro_nl = diagnoseDetails.getInt("Lymphozyten_absolut_in_100_pro_nl");
-                    diagnoseList.add(new Diagnose(patientID, diagnoseImage, date, Leukozyten_pro_nl, Lymphozyten_in_Prozent_der_Leuko, Lymphozyten_absolut_in_100_pro_nl));
+                    String doctorPrescription = diagnoseDetails.getString("doctorPrescription");
+                    diagnoseList.add(new Diagnose
+                            (patientID, diagnoseImage, date, Leukozyten_pro_nl, Lymphozyten_in_Prozent_der_Leuko, Lymphozyten_absolut_in_100_pro_nl, doctorPrescription));
                 }
 
                 Patient pat = new Patient(id, firstName, lastName, image,age, gender, birthday, diagnoseList, personalDoctorId, toLab);
-                Singleton_Patient_List.getInstance().addNewPatient(pat);
+                if(!Singleton_Patient_List.getInstance().isPatientAlreadyInList(pat))
+                    Singleton_Patient_List.getInstance().addNewPatient(pat);
                 Patient.setIdNummer(staticPatientID);
                 Doctor doc = Singleton_Doctor_List.getInstance().getDoctorById(personalDoctorId);
                 if(doc!=null) doc.addPatient(pat);

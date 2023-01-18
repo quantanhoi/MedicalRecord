@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/created_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diagnose date: " />
+
+    <TextView
+        android:id="@+id/created_Leukozyten_pro_nl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leukozyten pro nl"
+        android:layout_below="@id/created_date"/>
+
+    <TextView
+        android:id="@+id/created_Lymphozyten_in_Prozent_der_Leuko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lymphozyten in Prozent der Leuko"
+        android:layout_below="@+id/created_Leukozyten_pro_nl"/>
+
+    <TextView
+        android:id="@+id/created_Lymphozyten_absolut_in_100_pro_nl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lymphozyten absolut in 100 pro nl"
+        android:layout_below="@+id/created_Lymphozyten_in_Prozent_der_Leuko"/>
+
+    <ImageView
+        android:id="@+id/created_DignoseImage"
+        android:layout_width="wrap_content"
+        android:layout_height="245dp"
+        android:src="@drawable/dignose01"
+        android:layout_below="@+id/created_Lymphozyten_absolut_in_100_pro_nl"/>
+
+    <EditText
+        android:id="@+id/doctorInputBox"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/created_DignoseImage"
+        />
+
+    <Button
+        android:id="@+id/DM_saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/doctorInputBox"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="6dp"
+        android:onClick="onSaveDiagnoseClick"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/DM_deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/DM_saveButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@id/DM_saveButton"
+        android:onClick="onDeleteDiagnoseClick"
+        android:text="Delete" />
+
+</RelativeLayout>

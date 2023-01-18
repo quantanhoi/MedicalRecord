@@ -6,7 +6,7 @@ public class Singleton_Patient_List {
     private static Singleton_Patient_List instance;
     private ArrayList<Patient> patientsList = new ArrayList<>();
     private Singleton_Patient_List() {
-        //addSamplePatients();
+        //if(patientsList.isEmpty()) addSamplePatients();
     }
     private void addSamplePatients(){
         patientsList.add(new Patient("Trung", "Thieu", "1999-11-16", "Male"));
@@ -45,5 +45,11 @@ public class Singleton_Patient_List {
             }
         }
         return patients;
+    }
+    public boolean isPatientAlreadyInList(Patient pat){
+        for(Patient patient: patientsList){
+            if(patient.getId() == pat.getId()) return true;
+        }
+        return false;
     }
 }

@@ -21,7 +21,7 @@ public class Adapter_MyViewPager extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 1:
-                return new MedicalHistoryFragment();
+                return new MedicalHistoryFragment(patient);
             case 2:
                 return new ActionFragment(patient);
             default:
