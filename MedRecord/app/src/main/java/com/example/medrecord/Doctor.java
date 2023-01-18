@@ -8,6 +8,10 @@ public class Doctor {
         return doctorID;
     }
 
+    public static void setDoctorID(int doctorID) {
+        Doctor.doctorID = doctorID;
+    }
+
     private static int doctorID = 1110000;
 
     private String firstName;

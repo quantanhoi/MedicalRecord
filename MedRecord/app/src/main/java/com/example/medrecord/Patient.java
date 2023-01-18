@@ -3,6 +3,19 @@ package com.example.medrecord;
 import java.util.ArrayList;
 
 public class Patient {
+    public Patient(int id, String m_firstName, String m_lastName, int image, int age, String gender, String birthday, ArrayList<Diagnose> medicalHistory, int personalDoctorId, boolean toLab) {
+        this.id = id;
+        this.m_firstName = m_firstName;
+        this.m_lastName = m_lastName;
+        this.image = image;
+        this.age = age;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.medicalHistory = medicalHistory;
+        this.personalDoctorId = personalDoctorId;
+        this.toLab = toLab;
+    }
+
     public String getM_firstName() {
         return m_firstName;
     }
@@ -12,6 +25,11 @@ public class Patient {
     }
     public String getBirthday() {return birthday;}
     public String getGender() {return gender;}
+
+    public static void setIdNummer(int idNummer) {
+        Patient.idNummer = idNummer;
+    }
+
     public static int getIdNummer() {
         return idNummer;
     }

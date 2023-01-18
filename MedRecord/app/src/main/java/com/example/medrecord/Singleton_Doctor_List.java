@@ -22,8 +22,7 @@ public class Singleton_Doctor_List {
     private static Singleton_Doctor_List instance;
     private ArrayList<Doctor> doctorsList = new ArrayList<>();
     private Singleton_Doctor_List(){
-        addTestingDoctors();
-        saveDoctorList();
+        //addTestingDoctors();
     }
 
     private void addTestingDoctors(){
@@ -57,24 +56,24 @@ public class Singleton_Doctor_List {
         return null;
     }
 
-    public void saveDoctorList() {
-        JSONArray doctorList = new JSONArray();
-        for (Doctor doc : doctorsList){
-            JSONObject doctorDetails = new JSONObject();
-            try {
-                doctorDetails.put("firstName", doc.getFirstName());
-                doctorDetails.put("lastName", doc.getLastName());
-                doctorDetails.put("docID", doc.getDocID());
-                doctorDetails.put("image", doc.getImage());
-
-                JSONObject doctor = new JSONObject();
-                doctor.put("doctor", doctorDetails);
-
-                doctorList.put(doctor.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+//    public void saveDoctorList() {
+//        JSONArray doctorList = new JSONArray();
+//        for (Doctor doc : doctorsList){
+//            JSONObject doctorDetails = new JSONObject();
+//            try {
+//                doctorDetails.put("firstName", doc.getFirstName());
+//                doctorDetails.put("lastName", doc.getLastName());
+//                doctorDetails.put("docID", doc.getDocID());
+//                doctorDetails.put("image", doc.getImage());
+//
+//                JSONObject doctor = new JSONObject();
+//                doctor.put("doctor", doctorDetails);
+//
+//                doctorList.put(doctor.toString());
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
 //        try {
 //            FileOutputStream fileout = ("mytextfile.txt", MODE_PRIVATE);
@@ -89,5 +88,5 @@ public class Singleton_Doctor_List {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-    }
+//    }
 }
