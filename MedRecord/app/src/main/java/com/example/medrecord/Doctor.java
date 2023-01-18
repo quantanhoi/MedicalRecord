@@ -31,6 +31,12 @@ public class Doctor {
         this.image = image;
         this.docID = doctorID++;
     }
+    public Doctor(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.image = R.drawable.d3;
+        this.docID = doctorID++;
+    }
 
     public void addPatient(Patient patient) {
         patientList.add(patient);

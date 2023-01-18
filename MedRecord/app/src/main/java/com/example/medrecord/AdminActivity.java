@@ -21,10 +21,11 @@ public class AdminActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ManagePatientActivity.class);
         startActivity(intent);
     }
-    public void onManageDoctorClick() {
-
+    public void onManageDoctorClick(View view) {
+        openManageDoctorActivity();
     }
     public void openManageDoctorActivity() {
-
+        Intent intent = new Intent(this, ManageDoctorActivity.class);
+        startActivity(intent);
     }
 }
