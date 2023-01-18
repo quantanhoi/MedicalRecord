@@ -12,6 +12,17 @@ public class Patient {
     }
     public String getBirthday() {return birthday;}
     public String getGender() {return gender;}
+    public static int getIdNummer() {
+        return idNummer;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public ArrayList<Diagnose> getMedicalHistory() {
+        return medicalHistory;
+    }
     public void setM_firstName(String m_firstName) {
         this.m_firstName = m_firstName;
     }
@@ -24,21 +35,28 @@ public class Patient {
         return m_lastName + ", " + m_firstName;
     }
     private static int idNummer = 100000;
-
-    public int getId() {
-        return id;
-    }
-
     private int id;
     private String m_firstName;
     private String m_lastName;
 
     private int image;
+
+
+
     private int age;
     private String gender;
     private String birthday;
-    private Appointment appointment;
+
     private ArrayList<Diagnose>medicalHistory ;
+
+
+    public int getId() {
+        return id;
+    }
+
+
+    //private Appointment appointment;
+
     public void addDiagnose(Diagnose d){
         medicalHistory.add(d);
     }
@@ -47,9 +65,9 @@ public class Patient {
         return personalDoctorId;
     }
 
-    public void createAppointment(int day, int month, int year, String title, String note) {
-        this.appointment = new Appointment(day, month, year, title, note);
-    }
+//    public void createAppointment(int day, int month, int year, String title, String note) {
+//        this.appointment = new Appointment(day, month, year, title, note);
+//    }
 
     public void setPersonalDoctorId(int personalDoctorId) {
         this.personalDoctorId = personalDoctorId;
