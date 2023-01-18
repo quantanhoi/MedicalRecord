@@ -9,9 +9,9 @@ public class Singleton_Patient_List {
         //addSamplePatients();
     }
     private void addSamplePatients(){
-        patientsList.add(new Patient("Trung", "Thieu", "06.11.1999", "Male"));
-        patientsList.add(new Patient("Jonas", "Herzberger","01.12.1975", "Divers"));
-        patientsList.add(new Patient("Jane", "Doe", "16.08.1990", "Female"));
+        patientsList.add(new Patient("Trung", "Thieu", "1999-11-16", "Male"));
+        patientsList.add(new Patient("Jonas", "Herzberger","1975-04-30", "Divers"));
+        patientsList.add(new Patient("Jane", "Doe", "1984-12-11", "Female"));
 
     }
     public static Singleton_Patient_List getInstance() {

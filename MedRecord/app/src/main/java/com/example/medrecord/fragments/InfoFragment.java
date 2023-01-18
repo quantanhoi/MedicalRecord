@@ -40,6 +40,7 @@ public class InfoFragment extends Fragment {
         patientInfo.setText("First Name: " + patient.getM_firstName()
                 + "\nLast Name: " + patient.getM_lastName()
                 +"\nBirthday: " + patient.getBirthday()
+                +"\nage: " + patient.getAge()
         + "\nGender: " + patient.getGender());
         return view;
     }

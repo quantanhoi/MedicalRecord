@@ -116,9 +116,9 @@ public class Patient {
         this.toLab = false;
 
         this.personalDoctorId = 0;
-        this.age = age;
         this.gender = gender;
         this.birthday = birthday;
+        this.age = 2023 - Integer.parseInt(this.birthday.substring(0, 4));
         this.medicalHistory = new ArrayList<>();
 
         id = idNummer;
