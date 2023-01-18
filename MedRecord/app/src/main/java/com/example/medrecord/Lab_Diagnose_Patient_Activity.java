@@ -52,7 +52,7 @@ public class Lab_Diagnose_Patient_Activity extends AppCompatActivity {
         Lymphozyten_absolut_in_100_pro_nl = Double.parseDouble(tmpAbs.getText().toString());
 
         int image = R.id.DignoseImage;
-        patient.addDiagnose(new Diagnose(image, date, Leukozyten_pro_nl,
+        patient.addDiagnose(new Diagnose(patient.getId(), image, date, Leukozyten_pro_nl,
                 Lymphozyten_in_Prozent_der_Leuko, Lymphozyten_absolut_in_100_pro_nl));
 
         Toast.makeText(this.getApplicationContext(),
