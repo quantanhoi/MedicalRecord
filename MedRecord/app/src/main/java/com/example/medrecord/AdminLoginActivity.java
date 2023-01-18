@@ -7,10 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Admin_login_activity extends AppCompatActivity {
+public class AdminLoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

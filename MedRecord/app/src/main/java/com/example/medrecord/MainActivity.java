@@ -14,7 +14,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,31 +41,39 @@ public class MainActivity extends AppCompatActivity {
         openAdminActivity();
     }
     public void openAdminActivity() {
-        Intent intent = new Intent(this, Admin_login_activity.class);
+        Intent intent = new Intent(this, AdminLoginActivity.class);
         startActivity(intent);
     }
     public void onButtonLaborClick(View view){
         Intent intent = new Intent(this, LaborActivity.class);
         startActivity(intent);
     }
-    @Override
-    protected void onResume(){
-        super.onResume();
-        readJSONFiles(this);
-    }
-//    @Override
-//    protected void onPause() {
-//
-//        super.onPause();
-//        saveToJSONFile(this);
-//    }
+
 
     @Override
-    protected void onStop() {
-
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         saveToJSONFile(this);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        saveToJSONFile(this);
+//    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        saveToJSONFile(this);
+    }
+
+
+
 
     public void saveToJSONFile(Context context){
         saveDoctors(context);
@@ -101,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             OutputStreamWriter writer = new OutputStreamWriter(outputStream);
             writer.write(savedDoctorList.toString());
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
-                    Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_SHORT).show();
             writer.close();
         } catch (IOException e) {
             Log.e("saving_doctors_to_JSON", "Error saving doctor list to JSON file: " + e.getLocalizedMessage());
@@ -155,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
             OutputStreamWriter writer = new OutputStreamWriter(outputStream);
             writer.write(savedPatientList.toString());
             Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME_2,
-                    Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_SHORT).show();
             writer.close();
         } catch (IOException e) {
             Log.e("saving_patients_to_JSON", "Error saving patient list to JSON file: " + e.getLocalizedMessage());

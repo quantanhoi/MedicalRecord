@@ -27,14 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Admin_login_activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ui.login.AdminLoginActivity"
+            android:name=".AdminLoginActivity"
             android:exported="false"
             android:label="@string/title_activity_admin_login" />
         <activity
