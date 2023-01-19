@@ -11,4 +11,6 @@
     <color name="darkBlue">#00008b</color>
     <color name="aqua">	#00FFFF</color>
     <color name="error">#ff3333</color>
+    <color name="skyblue">#6ED9F3</color>
+    <color name="grayblue">#008b8b</color>
 </resources>

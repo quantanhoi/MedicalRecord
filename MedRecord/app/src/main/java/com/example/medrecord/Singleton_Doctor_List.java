@@ -45,6 +45,9 @@ public class Singleton_Doctor_List {
     public void addNewDoctor(Doctor doctor) {
         doctorsList.add(doctor);
     }
+    public void removeDoctor(int index) {
+        doctorsList.remove(index);
+    }
     public ArrayList<Doctor> getDoctorsList() {
         return doctorsList;
     }

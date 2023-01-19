@@ -27,6 +27,8 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
 
+
+        //transfer doctor name to this activity
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             String doctorName = extras.getString("doctorName");

@@ -40,6 +40,7 @@ public class Doctor {
         this.docID = doctorID++;
     }
 
+
     public Doctor(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -58,6 +59,7 @@ public class Doctor {
         patientList.add(patient);
     }
 
+
     public String getFirstName() {
         return firstName;
     }
@@ -69,6 +71,14 @@ public class Doctor {
     public String getName(){
         return lastName + ", " + firstName;
     }
+
+    public void setFirstName(String name) {
+        this.firstName = name;
+    }
+    public void setLastName(String name) {
+        this.lastName = name;
+    }
+
 
     public void removePatientFromList(Patient p){
         patientList.remove(p);

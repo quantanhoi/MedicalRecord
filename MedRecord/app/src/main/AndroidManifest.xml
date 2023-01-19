@@ -13,6 +13,20 @@
         android:theme="@style/Theme.MedRecord"
         tools:targetApi="31">
         <activity
+            android:name=".ManageDoctorInvidivdualEditActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ManageDoctorIndividualActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AddDoctorActivity"
             android:exported="false"
             android:label="Add Doctor">
@@ -35,15 +49,15 @@
         <activity
             android:name=".Lab_Diagnose_Patient_Activity"
             android:exported="false"
-            android:label="Patient Diagnose"/>
+            android:label="Patient Diagnose" />
         <activity
             android:name=".LaborActivity"
             android:exported="false"
-            android:label="Laboratory"/>
+            android:label="Laboratory" />
         <activity
             android:name=".Doctor_Manages_Patient_Activity"
             android:exported="false"
-            android:label="Manage Patient"/>
+            android:label="Manage Patient" />
         <activity
             android:name=".DoctorSelectionActivity"
             android:exported="false"
@@ -55,8 +69,8 @@
         <activity
             android:name=".AddPatientForDoctorActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"
-            android:label="Add Patient to Doctor">
+            android:label="Add Patient to Doctor"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -87,8 +101,8 @@
         <activity
             android:name=".AddPatientActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"
-            android:label="Add Patient">
+            android:label="Add Patient"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

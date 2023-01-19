@@ -25,9 +25,10 @@ public class ManageDoctorActivity extends AppCompatActivity implements Adapter_D
     public void onDoctorClick(int position) {
         doctorName = doctorList.get(position).getLastName() + ", " + doctorList.get(position).getFirstName();
         //TODO: change this to another activity
-        Intent intent = new Intent(this, DoctorActivity.class);
+        Intent intent = new Intent(this, ManageDoctorIndividualActivity.class);
         intent.putExtra("doctorName", doctorName);
         startActivity(intent);
+
     }
     public void addDoctorClick(View view){
         Intent intent = new Intent(this, AddDoctorActivity.class);
