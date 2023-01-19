@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+
+    android:paddingBottom="10dp">
+
+
+    <TextView
+        android:id="@+id/patientName_toRemove"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/patientID_toRemove"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/patientName_toRemove"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        />
+
+    <Button
+        android:id="@+id/delete_button_toRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@id/patientName_toRemove"
+        android:text="DELETE" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/patientID_toRemove"
+        android:layout_marginTop="9dp"
+        android:background="#DAD8D8" />
+
+</RelativeLayout>

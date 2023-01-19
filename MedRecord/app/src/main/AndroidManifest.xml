@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MedRecord"
         tools:targetApi="31">
         <activity
+            android:name=".Admin_Removes_Patient_Activity"
+            android:exported="false" />
+        <activity
             android:name=".SupportActivity"
             android:exported="false" />
         <activity

@@ -50,6 +50,10 @@ public class ManagePatientActivity extends AppCompatActivity {
 //        startActivityForResult(intent, requestCode);
         startActivity(intent);
     }
+    public void deletePatientClick(View view){
+        Intent intent = new Intent(this, Admin_Removes_Patient_Activity.class);
+        startActivity(intent);
+    }
     public void startPatientActivity() {
         Intent intent = new Intent(this, PatientActivity.class);
         startActivity(intent);

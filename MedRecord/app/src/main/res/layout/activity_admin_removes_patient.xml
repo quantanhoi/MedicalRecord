@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightcyan"
+    tools:context=".AddPatientForDoctorActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/patientList_toRemove"
+        android:layout_width="411dp"
+        android:layout_height="671dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputPatientName_toRemove" />
+
+    <EditText
+        android:id="@+id/inputPatientName_toRemove"
+        android:layout_width="240dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Patient Name"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/searchButton_toRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="Search"
+        android:textColorHint="@color/black"
+        android:onClick="onSearchClickToRemove"
+        app:layout_constraintBottom_toBottomOf="@+id/inputPatientName_toRemove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/inputPatientName_toRemove" />
+</androidx.constraintlayout.widget.ConstraintLayout>
