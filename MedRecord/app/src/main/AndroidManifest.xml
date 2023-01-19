@@ -28,6 +28,7 @@
                 android:value="" />
         </activity>
 
+        <activity
             android:name=".Diagnose_Manage_Activity"
             android:exported="false" />
 
