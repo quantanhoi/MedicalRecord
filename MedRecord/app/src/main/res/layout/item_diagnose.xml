@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/dateOfDiagnose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="1dp"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_OrderedBy"
+        android:layout_below="@id/dateOfDiagnose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ordered by doctor: "
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/orderedByDoctor"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/text_OrderedBy"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="-5dp"
+        android:layout_toEndOf="@id/text_OrderedBy"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+
+</RelativeLayout>

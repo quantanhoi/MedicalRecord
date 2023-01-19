@@ -1,6 +1,7 @@
 package com.example.medrecord;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Patient {
     public Patient(int id, String m_firstName, String m_lastName, int image, int age, String gender, String birthday, ArrayList<Diagnose> medicalHistory, int personalDoctorId, boolean toLab) {
@@ -123,6 +124,18 @@ public class Patient {
 
         id = idNummer;
         idNummer++;
+    }
+    public Diagnose getDiagnoseByDate(String d){
+        for(Diagnose diagnose: medicalHistory){
+            if(Objects.equals(diagnose.getDate(), d)) return diagnose;
+        }
+        return null;
+    }
+
+    public void deleteDiagnose(Diagnose d){
+        for(Diagnose diagnose: medicalHistory){
+            if(Objects.equals(diagnose, d)) medicalHistory.remove(diagnose);
+        }
     }
 
 }
