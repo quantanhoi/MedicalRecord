@@ -54,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onSupportButtonClicked(View view){
+        Intent intent = new Intent(this, SupportActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     protected void onPause() {

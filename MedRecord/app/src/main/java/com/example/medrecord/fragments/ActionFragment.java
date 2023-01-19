@@ -29,7 +29,7 @@ import java.util.Objects;
 public class ActionFragment extends Fragment {
 
     Button saveChanges;
-    CheckBox sendToLab, release;
+    CheckBox sendToLab, release, transfer;
     Patient patient;
     public ActionFragment(Patient pat){
         this.patient = pat;
@@ -46,6 +46,7 @@ public class ActionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_action, container, false);
         saveChanges = view.findViewById(R.id.save_changes_button);
         sendToLab = view.findViewById(R.id.send_to_lab);
+        transfer = view.findViewById(R.id.transfer_to_selection);
 
         if(patient.isToLab()) {
             sendToLab.setEnabled(false);
@@ -54,6 +55,13 @@ public class ActionFragment extends Fragment {
 
         release = view.findViewById(R.id.release);
         saveChanges.setOnClickListener(view1 -> {
+            if(transfer.isChecked()){
+                Toast.makeText(getContext(),"Patients shall be transferred", Toast.LENGTH_SHORT).show();
+                Doctor hausarzt = Singleton_Doctor_List.getInstance().getDoctorById(patient.getPersonalDoctorId());
+                hausarzt.removePatientFromList(patient);
+                patient.setPersonalDoctorId(0);
+                requireActivity().finish();
+            }
             if (release.isChecked()){
                 Toast.makeText(getContext(),"Patients shall be removed", Toast.LENGTH_SHORT).show();
                 Doctor hausarzt = Singleton_Doctor_List.getInstance().getDoctorById(patient.getPersonalDoctorId());
