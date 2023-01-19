@@ -47,7 +47,7 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
             }
         }
         patientToAddRV.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter_AddPatientForDoctor(patients, theDoc);
+        adapter = new Adapter_AddPatientForDoctor(patients, theDoc,this);
         patientToAddRV.setAdapter(adapter);
 
     }
@@ -55,7 +55,7 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
         EditText patientNameSearch = findViewById(R.id.editTextTextPersonName);
         String text = patientNameSearch.getText().toString();
         if(text == "") {
-            adapter = new Adapter_AddPatientForDoctor(patients, theDoc);
+            adapter = new Adapter_AddPatientForDoctor(patients, theDoc,this);
             patientToAddRV.setAdapter(adapter);
             return;
         }
@@ -65,8 +65,14 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
                 tempPatientList.add(p);
             }
         }
-        adapter = new Adapter_AddPatientForDoctor(tempPatientList, theDoc);
+        adapter = new Adapter_AddPatientForDoctor(tempPatientList, theDoc, this);
         patientToAddRV.setAdapter(adapter);
+    }
+
+    public void refreshRecyclerView(){
+        patients = Singleton_Patient_List.getInstance().getAvailablePatients();
+        patientToAddRV.setAdapter(new Adapter_AddPatientForDoctor(patients, theDoc,this));
+        patientToAddRV.getAdapter().notifyDataSetChanged();
     }
 
 

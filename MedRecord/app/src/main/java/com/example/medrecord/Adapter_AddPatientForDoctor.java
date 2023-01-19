@@ -17,6 +17,7 @@ import java.util.List;
 public class Adapter_AddPatientForDoctor extends RecyclerView.Adapter<ViewHolder_AddPatientsForDoctor> {
     List<Patient> mPatients;
     Doctor doctor;
+    AddPatientForDoctorActivity activity;
 
     public ViewHolder_AddPatientsForDoctor getVh() {
         return vh;
@@ -24,9 +25,10 @@ public class Adapter_AddPatientForDoctor extends RecyclerView.Adapter<ViewHolder
 
     ViewHolder_AddPatientsForDoctor vh;
 
-    public Adapter_AddPatientForDoctor(List<Patient> mPatients, Doctor doctor) {
+    public Adapter_AddPatientForDoctor(List<Patient> mPatients, Doctor doctor, AddPatientForDoctorActivity activity) {
         this.mPatients = mPatients;
         this.doctor = doctor;
+        this.activity = activity;
     }
 
     @NonNull
@@ -42,13 +44,11 @@ public class Adapter_AddPatientForDoctor extends RecyclerView.Adapter<ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder_AddPatientsForDoctor holder, @SuppressLint("RecyclerView") int position) {
         holder.patientNameView.setText(mPatients.get(position).getName());
         holder.patientIDView.setText("ID: " + mPatients.get(position).getId());
-        holder.buttonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                holder.onClick(mPatients.get(position));
-                mPatients.remove(position);
-                notifyItemRemoved(position);
-            }
+        holder.buttonView.setOnClickListener(view -> {
+            holder.onClick(mPatients.get(position));
+            mPatients.remove(position);
+            notifyItemRemoved(position);
+            activity.refreshRecyclerView();
         });
 
     }

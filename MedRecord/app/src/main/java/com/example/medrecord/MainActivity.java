@@ -94,9 +94,12 @@ public class MainActivity extends AppCompatActivity {
         File file1 = new File(getFilesDir(), FILE_NAME);
         if(file1.exists())
             readJSON_Doctors();
+        else Singleton_Doctor_List.getInstance();
+
         File file2 = new File(getFilesDir(), FILE_NAME_2);
         if(file2.exists())
             readJSON_Patients();
+        else Singleton_Patient_List.getInstance();
     }
     public void saveDoctors(Context context){
         JSONArray savedDoctorList = new JSONArray();
