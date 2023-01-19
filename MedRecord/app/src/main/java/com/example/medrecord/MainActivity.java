@@ -13,6 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -90,8 +91,12 @@ public class MainActivity extends AppCompatActivity {
         savePatients(context);
     }
     public void readJSONFiles(Context context){
-        readJSON_Doctors();
-        readJSON_Patients();
+        File file1 = new File(getFilesDir(), FILE_NAME);
+        if(file1.exists())
+            readJSON_Doctors();
+        File file2 = new File(getFilesDir(), FILE_NAME_2);
+        if(file2.exists())
+            readJSON_Patients();
     }
     public void saveDoctors(Context context){
         JSONArray savedDoctorList = new JSONArray();
