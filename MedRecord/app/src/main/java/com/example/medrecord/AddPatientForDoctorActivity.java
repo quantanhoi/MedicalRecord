@@ -31,6 +31,9 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_patient_for_doctor);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         patientToAddRV = findViewById(R.id.toAddPatientList);
         patients = Singleton_Patient_List.getInstance().getAvailablePatients();
         docs = Singleton_Doctor_List.getInstance().getDoctorsList();
@@ -74,7 +77,18 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
         patientToAddRV.setAdapter(new Adapter_AddPatientForDoctor(patients, theDoc,this));
         patientToAddRV.getAdapter().notifyDataSetChanged();
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
+    }
 
 
 }

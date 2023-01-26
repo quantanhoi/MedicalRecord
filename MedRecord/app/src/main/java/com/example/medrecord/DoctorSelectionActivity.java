@@ -21,6 +21,9 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Adapte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_selection);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         RecyclerView doctorListRV = findViewById(R.id.AllDoctorsView);
         doctorListRV.setLayoutManager(new LinearLayoutManager(this));
         doctorListRV.setAdapter(new Adapter_Doctor(getApplicationContext(), doctorList, this));
@@ -41,4 +44,18 @@ public class DoctorSelectionActivity extends AppCompatActivity implements Adapte
         intent.putExtra("doctorName", doctorName);
         startActivity(intent);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
+    }
+
 }

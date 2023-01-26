@@ -19,6 +19,8 @@ public class ManagePatientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_patient);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         patientList = findViewById(R.id.patientRecyclerView);
         ArrayList<String> patListName = new ArrayList<>();
 
@@ -57,5 +59,17 @@ public class ManagePatientActivity extends AppCompatActivity {
     public void startPatientActivity() {
         Intent intent = new Intent(this, PatientActivity.class);
         startActivity(intent);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
     }
 }

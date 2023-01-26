@@ -15,6 +15,8 @@ public class AdminLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
     public void onLoginClick(View view){
         TextView errorText = findViewById(R.id.error_text_view);
@@ -40,5 +42,17 @@ public class AdminLoginActivity extends AppCompatActivity {
     public void openAdminActivity() {
         Intent intent = new Intent(this, AdminActivity.class);
         startActivity(intent);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
     }
 }

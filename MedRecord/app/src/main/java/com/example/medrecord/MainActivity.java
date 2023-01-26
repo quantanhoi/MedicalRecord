@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         if(!hasRead) {
             readJSONFiles(this);
@@ -77,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
 //        super.onStop();
 //        saveToJSONFile(this);
 //    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        saveToJSONFile(this);
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        saveToJSONFile(this);
+//    }
 
 
 
@@ -125,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
             FileOutputStream outputStream = context.openFileOutput("doctors.json", MODE_PRIVATE);
             OutputStreamWriter writer = new OutputStreamWriter(outputStream);
             writer.write(savedDoctorList.toString());
-            Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
+                    //Toast.LENGTH_SHORT).show();
             writer.close();
         } catch (IOException e) {
             Log.e("saving_doctors_to_JSON", "Error saving doctor list to JSON file: " + e.getLocalizedMessage());
@@ -180,8 +182,8 @@ public class MainActivity extends AppCompatActivity {
             FileOutputStream outputStream = context.openFileOutput("patients.json", MODE_PRIVATE);
             OutputStreamWriter writer = new OutputStreamWriter(outputStream);
             writer.write(savedPatientList.toString());
-            Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME_2,
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME_2,
+                    //Toast.LENGTH_SHORT).show();
             writer.close();
         } catch (IOException e) {
             Log.e("saving_patients_to_JSON", "Error saving patient list to JSON file: " + e.getLocalizedMessage());

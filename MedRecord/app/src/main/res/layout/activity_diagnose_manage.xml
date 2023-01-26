@@ -10,6 +10,7 @@
         android:id="@+id/created_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="22dp"
         android:text="Diagnose date: " />
 
     <TextView
@@ -17,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Leukozyten pro nl"
+        android:textSize="20dp"
         android:layout_below="@id/created_date"/>
 
     <TextView
@@ -24,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lymphozyten in Prozent der Leuko"
+        android:textSize="20dp"
         android:layout_below="@+id/created_Leukozyten_pro_nl"/>
 
     <TextView
@@ -31,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lymphozyten absolut in 100 pro nl"
+        android:textSize="20dp"
         android:layout_below="@+id/created_Lymphozyten_in_Prozent_der_Leuko"/>
 
     <ImageView
@@ -44,6 +48,8 @@
         android:id="@+id/doctorInputBox"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:hint="Add comments here"
+        android:gravity="top|left"
         android:layout_below="@id/created_DignoseImage"
         />
 

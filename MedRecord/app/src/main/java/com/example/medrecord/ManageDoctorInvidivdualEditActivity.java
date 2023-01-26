@@ -15,6 +15,8 @@ public class ManageDoctorInvidivdualEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_doctor_invidivdual_edit);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             doctorID = extras.getInt("doctorID");
@@ -32,5 +34,17 @@ public class ManageDoctorInvidivdualEditActivity extends AppCompatActivity {
         Singleton_Doctor_List.getInstance().getDoctorById(doctorID).setLastName(docLastname);
         Toast.makeText(view.getContext(), "Information Changed", Toast.LENGTH_SHORT).show();
         finish();
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
     }
 }

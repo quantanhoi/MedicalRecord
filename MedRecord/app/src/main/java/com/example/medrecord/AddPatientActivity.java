@@ -20,6 +20,9 @@ public class AddPatientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_patient);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         String gender[] = {"Male", "Female", "Divers"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, gender);
         Spinner spinner = findViewById(R.id.spinner);
@@ -59,5 +62,17 @@ public class AddPatientActivity extends AppCompatActivity {
     public void openManagePatientActivity() {
         Intent intent = new Intent(this, ManagePatientActivity.class);
         startActivity(intent);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
     }
 }

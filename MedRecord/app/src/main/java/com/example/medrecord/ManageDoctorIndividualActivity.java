@@ -17,6 +17,8 @@ public class ManageDoctorIndividualActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_doctor_individual);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             String doctorName = extras.getString("doctorName");
@@ -49,5 +51,16 @@ public class ManageDoctorIndividualActivity extends AppCompatActivity {
         Singleton_Doctor_List.getInstance().removeDoctor(index);
 
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
+    }
 }

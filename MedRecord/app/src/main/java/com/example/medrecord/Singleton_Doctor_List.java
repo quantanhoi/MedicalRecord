@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 
@@ -64,5 +65,41 @@ public class Singleton_Doctor_List {
             if(doctor.getDocID() == doc.getDocID()) return true;
         }
         return false;
+    }
+
+    public void saveDoctors(Context context){
+
+        JSONArray savedDoctorList = new JSONArray();
+        for (Doctor doc: Singleton_Doctor_List.getInstance().getDoctorsList()){
+            JSONObject doctorDetails = new JSONObject();
+            try{
+                doctorDetails.put("docID", doc.getDocID());
+                doctorDetails.put("docFirstName", doc.getFirstName());
+                doctorDetails.put("docLastName", doc.getLastName());
+                doctorDetails.put("docImage", doc.getImage());
+                doctorDetails.put("staticDocID", Doctor.getDoctorID());
+
+                JSONObject doctor = new JSONObject();
+                doctor.put("doctor", doctorDetails);
+
+                savedDoctorList.put(doctor);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            FileOutputStream outputStream = context.openFileOutput("doctors.json", MODE_PRIVATE);
+            OutputStreamWriter writer = new OutputStreamWriter(outputStream);
+            writer.write(savedDoctorList.toString());
+            //Toast.makeText(context.getApplicationContext(), "Saved to " + context.getFilesDir() + "/" + "doctors.json",
+                    //Toast.LENGTH_SHORT).show();
+            writer.close();
+        } catch (IOException e) {
+            Log.e("saving_doctors_to_JSON", "Error saving doctor list to JSON file: " + e.getLocalizedMessage());
+        }
+//        catch (JSONException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 }

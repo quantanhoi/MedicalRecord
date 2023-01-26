@@ -17,6 +17,9 @@ public class ManageDoctorActivity extends AppCompatActivity implements Adapter_D
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_doctor);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         RecyclerView doctorListRV = findViewById(R.id.AllDoctorsView);
         doctorListRV.setLayoutManager(new LinearLayoutManager(this));
         doctorListRV.setAdapter(new Adapter_Doctor(getApplicationContext(), doctorList, this));
@@ -34,5 +37,16 @@ public class ManageDoctorActivity extends AppCompatActivity implements Adapter_D
         Intent intent = new Intent(this, AddDoctorActivity.class);
         startActivity(intent);
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
+    }
 }

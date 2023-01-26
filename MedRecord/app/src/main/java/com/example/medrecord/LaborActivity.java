@@ -19,6 +19,8 @@ public class LaborActivity extends AppCompatActivity implements  Adapter_Patient
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_labor);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         theLab = Singleton_Labor.getLabor();
         patientList = theLab.getmPatients();
@@ -49,5 +51,17 @@ public class LaborActivity extends AppCompatActivity implements  Adapter_Patient
         patientList = theLab.getmPatients();
         patientListRV.setAdapter(new Adapter_Patient(getApplicationContext(),patientList,this));
         patientListRV.getAdapter().notifyDataSetChanged();
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
     }
 }

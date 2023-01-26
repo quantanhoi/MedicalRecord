@@ -22,6 +22,8 @@ public class Lab_Diagnose_Patient_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_diagnose_patient);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
@@ -63,6 +65,17 @@ public class Lab_Diagnose_Patient_Activity extends AppCompatActivity {
         theLab.getmPatients().remove(patient);
         finish();
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
+    }
 
 }

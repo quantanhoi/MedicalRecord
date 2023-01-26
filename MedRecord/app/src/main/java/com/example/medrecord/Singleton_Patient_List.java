@@ -1,5 +1,18 @@
 package com.example.medrecord;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class Singleton_Patient_List {
@@ -51,5 +64,57 @@ public class Singleton_Patient_List {
             if(patient.getId() == pat.getId()) return true;
         }
         return false;
+    }
+
+    public void savePatients(Context context){
+        JSONArray savedPatientList = new JSONArray();
+        for (Patient pat: Singleton_Patient_List.getInstance().getPatientsList()){
+            JSONObject patientDetails = new JSONObject();
+            try{
+                patientDetails.put("firstName", pat.getM_firstName());
+                patientDetails.put("lastName", pat.getM_lastName());
+                patientDetails.put("birthday", pat.getBirthday());
+                patientDetails.put("gender", pat.getGender());
+                patientDetails.put("age", pat.getAge());
+                patientDetails.put("id", pat.getId());
+                patientDetails.put("personalDoctorId", pat.getPersonalDoctorId());
+                patientDetails.put("toLab", pat.isToLab());
+                patientDetails.put("image", pat.getImage());
+
+                JSONArray medicalHistory = new JSONArray();
+                for (Diagnose diagnose : pat.getMedicalHistory()) {
+                    JSONObject diagnoseDetails = new JSONObject();
+                    diagnoseDetails.put("patientID", diagnose.patientID);
+                    diagnoseDetails.put("diagnoseImage", diagnose.diagnoseImage);
+                    diagnoseDetails.put("date", diagnose.date);
+                    diagnoseDetails.put("Leukozyten_pro_nl", diagnose.Leukozyten_pro_nl);
+                    diagnoseDetails.put("Lymphozyten_in_Prozent_der_Leuko", diagnose.Lymphozyten_in_Prozent_der_Leuko);
+                    diagnoseDetails.put("Lymphozyten_absolut_in_100_pro_nl", diagnose.Lymphozyten_absolut_in_100_pro_nl);
+                    diagnoseDetails.put("doctorPrescription", diagnose.doctorPrescription);
+
+                    medicalHistory.put(diagnoseDetails);
+                }
+                patientDetails.put("staticPatientID", Patient.getIdNummer());
+                patientDetails.put("medicalHistory", medicalHistory);
+
+                JSONObject patient = new JSONObject();
+                patient.put("patient", patientDetails);
+
+                savedPatientList.put(patient);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            FileOutputStream outputStream = context.openFileOutput("patients.json", MODE_PRIVATE);
+            OutputStreamWriter writer = new OutputStreamWriter(outputStream);
+            writer.write(savedPatientList.toString());
+            //Toast.makeText(context, "Saved to " + context.getFilesDir() + "/" + "patients.json",
+                    //Toast.LENGTH_SHORT).show();
+            writer.close();
+        } catch (IOException e) {
+            Log.e("saving_patients_to_JSON", "Error saving patient list to JSON file: " + e.getLocalizedMessage());
+        }
     }
 }

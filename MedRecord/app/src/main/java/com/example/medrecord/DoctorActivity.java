@@ -26,7 +26,8 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         //transfer doctor name to this activity
         Bundle extras = getIntent().getExtras();
@@ -79,5 +80,17 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
         patientList = Doc.getPatientList();
         patientListRV.setAdapter(new Adapter_Doctor_Manages_Patient(getApplicationContext(),patientList,this));
         patientListRV.getAdapter().notifyDataSetChanged();
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
     }
 }

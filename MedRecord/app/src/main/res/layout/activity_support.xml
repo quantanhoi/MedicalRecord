@@ -32,7 +32,8 @@
 
     <TextView
         android:id="@+id/creator1"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Creator 1: Dang Quang Tran"
@@ -43,7 +44,8 @@
 
     <TextView
         android:id="@+id/email1"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Email: dangquang.tran@stud.h-da.de"
         android:textColor="@color/black"
@@ -54,7 +56,8 @@
 
     <TextView
         android:id="@+id/creator2"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Creator 2: Trung Thieu Quang"
@@ -65,7 +68,8 @@
 
     <TextView
         android:id="@+id/email2"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Email: trungthieu.quang@stud.h-da.de"
         android:textColor="@color/black"

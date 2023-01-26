@@ -25,6 +25,9 @@ public class Admin_Removes_Patient_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_removes_patient);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         patientToRemoveRV = findViewById(R.id.patientList_toRemove);
         patients = Singleton_Patient_List.getInstance().getPatientsList();
         docs = Singleton_Doctor_List.getInstance().getDoctorsList();
@@ -55,5 +58,17 @@ public class Admin_Removes_Patient_Activity extends AppCompatActivity {
         patients = Singleton_Patient_List.getInstance().getAvailablePatients();
         patientToRemoveRV.setAdapter(new Adapter_AdminRemovesPatient(patients,this));
         patientToRemoveRV.getAdapter().notifyDataSetChanged();
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Singleton_Doctor_List.getInstance().saveDoctors(this);
+        Singleton_Patient_List.getInstance().savePatients(this);
     }
 }
