@@ -13,8 +13,18 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class ManagePatientActivity extends AppCompatActivity {
+    /**
+     * list view of all patient in singleton list
+     */
     private ListView patientList;
+    /**
+     * swipe action to refesh
+     */
     private SwipeRefreshLayout swipeRefreshLayout;
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,24 +57,45 @@ public class ManagePatientActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * handler for add patient button
+     * @param view
+     */
     public void addPatientClick(View view) {
         Intent intent = new Intent(this, AddPatientActivity.class);
 //        startActivityForResult(intent, requestCode);
         startActivity(intent);
     }
+    /**
+     * handler for delete patient button
+     * @param view
+     */
     public void deletePatientClick(View view){
         Intent intent = new Intent(this, Admin_Removes_Patient_Activity.class);
         startActivity(intent);
     }
+
+    /**
+     * start patient activity
+     */
     public void startPatientActivity() {
         Intent intent = new Intent(this, PatientActivity.class);
         startActivity(intent);
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+
+    /**
+     * Save and write the current data to json file
+     */
 
     @Override
     public void onPause() {

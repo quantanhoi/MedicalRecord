@@ -10,7 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class AdminLoginActivity extends AppCompatActivity {
-
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +21,11 @@ public class AdminLoginActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
     }
+
+    /**
+     * handler for log in button
+     * @param view
+     */
     public void onLoginClick(View view){
         TextView errorText = findViewById(R.id.error_text_view);
         EditText username = findViewById(R.id.username_edit_text);
@@ -39,15 +47,27 @@ public class AdminLoginActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * open admin activity
+     */
     public void openAdminActivity() {
         Intent intent = new Intent(this, AdminActivity.class);
         startActivity(intent);
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+    /**
+     * Save and write the current data to json file
+     */
 
     @Override
     public void onPause() {

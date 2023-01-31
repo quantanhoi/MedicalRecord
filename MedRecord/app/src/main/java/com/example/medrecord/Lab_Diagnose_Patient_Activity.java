@@ -10,14 +10,28 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * lab diagnose activity
+ */
 public class Lab_Diagnose_Patient_Activity extends AppCompatActivity {
-
+    /**
+     * patient to diagnose
+     */
     Patient patient;
-
+    /**
+     * date of diagnosis
+     */
     String date;
+    /**
+     * data for diagnosis
+     */
     double Leukozyten_pro_nl;
     double Lymphozyten_in_Prozent_der_Leuko;
     double Lymphozyten_absolut_in_100_pro_nl;
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +54,10 @@ public class Lab_Diagnose_Patient_Activity extends AppCompatActivity {
 
     }
 
+    /**
+     * saving data to diagnosis
+     * @param view
+     */
     public void saveDiagnose(View view){
         EditText tmpDate = (EditText) findViewById(R.id.date);
         date = tmpDate.getText().toString();
@@ -65,12 +83,19 @@ public class Lab_Diagnose_Patient_Activity extends AppCompatActivity {
         theLab.getmPatients().remove(patient);
         finish();
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
 
+    /**
+     * Save and write the current data to json file
+     */
     @Override
     public void onPause() {
         super.onPause();

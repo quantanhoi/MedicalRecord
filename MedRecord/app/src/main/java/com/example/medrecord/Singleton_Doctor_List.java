@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/**
+ * Singleton class for doctor list
+ */
 public class Singleton_Doctor_List {
     private static Singleton_Doctor_List instance;
     private ArrayList<Doctor> doctorsList = new ArrayList<>();
@@ -26,6 +29,9 @@ public class Singleton_Doctor_List {
         //if(doctorsList.isEmpty()) addTestingDoctors();
     }
 
+    /**
+     * test singleton class
+     */
     private void addTestingDoctors(){
         doctorsList.add(new Doctor("Hans", "Landa", R.drawable.d1));
         doctorsList.add(new Doctor("Hans", "Fritz", R.drawable.d2));
@@ -33,6 +39,10 @@ public class Singleton_Doctor_List {
         doctorsList.add(new Doctor("Dottie", "Wolmar", R.drawable.d3));
     }
 
+    /**
+     *
+     * @return instance of the singleton class
+     */
     public static Singleton_Doctor_List getInstance() {
         if(instance == null) {
             synchronized (Singleton_Doctor_List.class) {
@@ -43,16 +53,35 @@ public class Singleton_Doctor_List {
         }
         return instance;
     }
+
+    /**
+     * adding new doctor to singleton list
+     * @param doctor new doctor added
+     */
     public void addNewDoctor(Doctor doctor) {
         doctorsList.add(doctor);
     }
+
+    /**
+     *
+     * @param index position of doctor to remove
+     */
     public void removeDoctor(int index) {
         doctorsList.remove(index);
     }
+
+    /**
+     * @return getting all doctor in the list
+     */
     public ArrayList<Doctor> getDoctorsList() {
         return doctorsList;
     }
 
+    /**
+     * search for doctor by using ID
+     * @param ID of the doctor
+     * @return doctor object
+     */
     public Doctor getDoctorById(int ID){
         for (Doctor d : instance.doctorsList){
             if (d.getDocID() == ID) return d;
@@ -60,6 +89,11 @@ public class Singleton_Doctor_List {
         return null;
     }
 
+    /**
+     * check if doctor is already in the list
+     * @param doc to find
+     * @return true if doctor already in the list, otherwise false
+     */
     public boolean isDoctorAlreadyInList(Doctor doc){
         for(Doctor doctor: doctorsList){
             if(doctor.getDocID() == doc.getDocID()) return true;
@@ -67,6 +101,10 @@ public class Singleton_Doctor_List {
         return false;
     }
 
+    /**
+     * save data of doctor to json file
+     * @param context
+     */
     public void saveDoctors(Context context){
 
         JSONArray savedDoctorList = new JSONArray();

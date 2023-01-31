@@ -18,14 +18,32 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class AddPatientForDoctorActivity extends AppCompatActivity {
+    /**
+     * list of patient that is able be added to doctor's patient list
+     */
     RecyclerView patientToAddRV;
+    /**
+     * Adapter for recycle view
+     */
     Adapter_AddPatientForDoctor adapter;
+    /**
+     * List of singleton patients
+     */
     ArrayList<Patient> patients;
+    /**
+     * List of singleton doctors
+     */
     ArrayList<Doctor> docs;
+    /**
+     * the chosen/logged in doctor
+     */
     static Doctor theDoc;
 
 
-
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +72,11 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
         patientToAddRV.setAdapter(adapter);
 
     }
+
+    /**
+     * Handler for patient searching button
+     * @param view
+     */
     public void onSearchClick (View view) {
         EditText patientNameSearch = findViewById(R.id.editTextTextPersonName);
         String text = patientNameSearch.getText().toString();
@@ -72,17 +95,28 @@ public class AddPatientForDoctorActivity extends AppCompatActivity {
         patientToAddRV.setAdapter(adapter);
     }
 
+    /**
+     * Refresh the recycle view after adding new patient to the list
+     */
     public void refreshRecyclerView(){
         patients = Singleton_Patient_List.getInstance().getAvailablePatients();
         patientToAddRV.setAdapter(new Adapter_AddPatientForDoctor(patients, theDoc,this));
         patientToAddRV.getAdapter().notifyDataSetChanged();
     }
+
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
 
+    /**
+     * Save and write the current data to json file
+     */
     @Override
     public void onPause() {
         super.onPause();

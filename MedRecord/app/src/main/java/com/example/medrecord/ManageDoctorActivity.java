@@ -11,8 +11,19 @@ import android.view.View;
 import java.util.ArrayList;
 
 public class ManageDoctorActivity extends AppCompatActivity implements Adapter_Doctor.DoctorItemClickListener {
+    /**
+     * list of all doctor
+     */
     ArrayList<Doctor> doctorList = Singleton_Doctor_List.getInstance().getDoctorsList();
+    /**
+     * selected doctor's name
+     */
     String doctorName;
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +35,10 @@ public class ManageDoctorActivity extends AppCompatActivity implements Adapter_D
         doctorListRV.setLayoutManager(new LinearLayoutManager(this));
         doctorListRV.setAdapter(new Adapter_Doctor(getApplicationContext(), doctorList, this));
     }
+    /**
+     * Handler for Doctor button
+     * @param position of the doctor in the recycle view list
+     */
     @Override
     public void onDoctorClick(int position) {
         doctorName = doctorList.get(position).getLastName() + ", " + doctorList.get(position).getFirstName();
@@ -33,16 +48,27 @@ public class ManageDoctorActivity extends AppCompatActivity implements Adapter_D
         startActivity(intent);
 
     }
+    /**
+     * Handler for adding Doctor button
+     * @param view
+     */
     public void addDoctorClick(View view){
         Intent intent = new Intent(this, AddDoctorActivity.class);
         startActivity(intent);
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
-
+    /**
+     * Save and write the current data to json file
+     */
     @Override
     public void onPause() {
         super.onPause();

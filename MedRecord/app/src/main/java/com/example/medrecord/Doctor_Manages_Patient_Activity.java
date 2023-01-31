@@ -12,13 +12,23 @@ import java.util.Objects;
 
 public class Doctor_Manages_Patient_Activity extends AppCompatActivity {
 
+    /**
+     * selected Doctor
+     */
     static Doctor theDoc;
+    /**
+     * selected Patient
+     */
     static Patient thePatient;
 
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     Adapter_MyViewPager myViewPagerAdapter;
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,11 +87,19 @@ public class Doctor_Manages_Patient_Activity extends AppCompatActivity {
             }
         });
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+    /**
+     * Save and write the current data to json file
+     */
 
     @Override
     public void onPause() {

@@ -3,6 +3,9 @@ package com.example.medrecord;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Singleton for doctor list
+ */
 public class Doctor {
     public static int getDoctorID() {
         return doctorID;

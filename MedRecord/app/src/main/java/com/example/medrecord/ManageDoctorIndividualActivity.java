@@ -13,6 +13,10 @@ public class ManageDoctorIndividualActivity extends AppCompatActivity {
     public static Doctor Doc ;
     public static int DocID;
 
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +36,21 @@ public class ManageDoctorIndividualActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * handler for button
+     * @param view
+     */
     public void onEditInformationClick(View view) {
         Intent intent = new Intent(this, ManageDoctorInvidivdualEditActivity.class);
         DocID = Doc.getDocID();
         intent.putExtra("doctorID", DocID);
         startActivity(intent);
     }
+    /**
+     * handler for button
+     * @param view
+     */
     public void onRemoveDoctorClick(View view){
         int DoctorID = Doc.getDocID();
         int index = -1;
@@ -51,12 +64,19 @@ public class ManageDoctorIndividualActivity extends AppCompatActivity {
         Singleton_Doctor_List.getInstance().removeDoctor(index);
 
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
-
+    /**
+     * Save and write the current data to json file
+     */
     @Override
     public void onPause() {
         super.onPause();

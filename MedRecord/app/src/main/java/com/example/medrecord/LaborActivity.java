@@ -10,6 +10,9 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
+/**
+ * labor activity
+ */
 public class LaborActivity extends AppCompatActivity implements  Adapter_Patient.PatientItemClickListener{
     private Singleton_Labor theLab ;
     ArrayList<Patient> patientList;
@@ -36,6 +39,10 @@ public class LaborActivity extends AppCompatActivity implements  Adapter_Patient
 //        });
     }
 
+    /**
+     * handler for every patient click
+     * @param position
+     */
     @Override
     public void onPatientClick(int position) {
         String patientName = patientList.get(position).getName();
@@ -44,6 +51,9 @@ public class LaborActivity extends AppCompatActivity implements  Adapter_Patient
         startActivity(intent);
     }
 
+    /**
+     * update data in recycle view
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -52,12 +62,18 @@ public class LaborActivity extends AppCompatActivity implements  Adapter_Patient
         patientListRV.setAdapter(new Adapter_Patient(getApplicationContext(),patientList,this));
         patientListRV.getAdapter().notifyDataSetChanged();
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
-
+    /**
+     * Save and write the current data to json file
+     */
     @Override
     public void onPause() {
         super.onPause();

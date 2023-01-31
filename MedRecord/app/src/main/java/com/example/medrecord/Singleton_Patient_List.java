@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/**
+ * singleton class for patient
+ */
 public class Singleton_Patient_List {
     private static Singleton_Patient_List instance;
     private ArrayList<Patient> patientsList = new ArrayList<>();
@@ -27,6 +30,11 @@ public class Singleton_Patient_List {
         patientsList.add(new Patient("Jane", "Doe", "1984-12-11", "Female"));
 
     }
+
+    /**
+     *
+     * @return instance of the singleton class
+     */
     public static Singleton_Patient_List getInstance() {
         if(instance == null) {
             synchronized (Singleton_Patient_List.class) {
@@ -37,12 +45,28 @@ public class Singleton_Patient_List {
         }
         return instance;
     }
+
+    /**
+     * adding new patient to the singleton list
+     * @param patient to add
+     */
     public void addNewPatient(Patient patient) {
         patientsList.add(patient);
     }
+
+    /**
+     *
+     * @return list of patient in singleton instance
+     */
     public ArrayList<Patient> getPatientsList() {
         return patientsList;
     }
+
+    /**
+     * find patient by id
+     * @param ID of patient to find
+     * @return the patient which matched id
+     */
     public Patient findPatientByID(int ID){
         for(Patient pat: patientsList){
             if(pat.getId() == ID) return pat;
@@ -50,6 +74,11 @@ public class Singleton_Patient_List {
         return null;
 
     }
+
+    /**
+     *
+     * @return patients which is not yet assigned to doctor
+     */
     public ArrayList<Patient> getAvailablePatients(){
         ArrayList<Patient> patients = new ArrayList<>();
         for(Patient p: patientsList){
@@ -59,6 +88,12 @@ public class Singleton_Patient_List {
         }
         return patients;
     }
+
+    /**
+     * check if a patient is already in the list
+     * @param pat
+     * @return true if yes
+     */
     public boolean isPatientAlreadyInList(Patient pat){
         for(Patient patient: patientsList){
             if(patient.getId() == pat.getId()) return true;
@@ -66,6 +101,10 @@ public class Singleton_Patient_List {
         return false;
     }
 
+    /**
+     * saving patient data to json file
+     * @param context
+     */
     public void savePatients(Context context){
         JSONArray savedPatientList = new JSONArray();
         for (Patient pat: Singleton_Patient_List.getInstance().getPatientsList()){

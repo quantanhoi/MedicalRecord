@@ -21,11 +21,27 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/**
+ * main activity of the program
+ */
 public class MainActivity extends AppCompatActivity {
-
+    /**
+     * setting up json file for doctor
+     */
     private static final String FILE_NAME = "doctors.json";
+    /**
+     * setting up json file for doctor
+     */
     private static final String FILE_NAME_2 = "patients.json";
+    /**
+     * check if the file is read or not
+     */
     private static boolean hasRead = false;
+
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,31 +54,57 @@ public class MainActivity extends AppCompatActivity {
             hasRead = true;
         }
     }
+
+    /**
+     * Handler for Doctor button
+     * @param view
+     */
     public void onButtonDoctorClick(View view) {
         openDoctorActivity();
     }
+
+    /**
+     * open Doctor activity
+     */
     public void openDoctorActivity() {
         Intent intent = new Intent(this, DoctorSelectionActivity.class);
         startActivity(intent);
     }
+    /**
+     * Handler for Admin button
+     * @param view
+     */
     public void onButtonAdminClick(View view) {
         openAdminActivity();
     }
+    /**
+     * open ADmin activity
+     */
     public void openAdminActivity() {
         Intent intent = new Intent(this, AdminLoginActivity.class);
         startActivity(intent);
     }
+    /**
+     * Handler for Labor button
+     * @param view
+     */
     public void onButtonLaborClick(View view){
         Intent intent = new Intent(this, LaborActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * Handler for Support button
+     * @param view
+     */
     public void onSupportButtonClicked(View view){
         Intent intent = new Intent(this, SupportActivity.class);
         startActivity(intent);
     }
 
 
+    /**
+     * Save and write the current data to json file
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -86,12 +128,19 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
-
-
+    /**
+     * save data to json file
+     * @param context
+     */
     public void saveToJSONFile(Context context){
         saveDoctors(context);
         savePatients(context);
     }
+
+    /**
+     * read data from json file
+     * @param context
+     */
     public void readJSONFiles(Context context){
         File file1 = new File(getFilesDir(), FILE_NAME);
         if(file1.exists())
@@ -103,6 +152,11 @@ public class MainActivity extends AppCompatActivity {
             readJSON_Patients();
         else Singleton_Patient_List.getInstance();
     }
+
+    /**
+     * save data to singleton doctor
+     * @param context
+     */
     public void saveDoctors(Context context){
         JSONArray savedDoctorList = new JSONArray();
         for (Doctor doc: Singleton_Doctor_List.getInstance().getDoctorsList()){
@@ -138,6 +192,10 @@ public class MainActivity extends AppCompatActivity {
 //        }
     }
 
+    /**
+     * save data to singleton patient
+     * @param context
+     */
     public void savePatients(Context context){
         JSONArray savedPatientList = new JSONArray();
         for (Patient pat: Singleton_Patient_List.getInstance().getPatientsList()){
@@ -190,6 +248,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * read data in json file for doctor
+     */
     public void readJSON_Doctors(){
         try {
             FileInputStream inputStream = openFileInput("doctors.json");
@@ -220,7 +281,9 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
+    /**
+     * read data in json file for patient
+     */
     public void readJSON_Patients() {
         try {
             FileInputStream inputStream = openFileInput("patients.json");

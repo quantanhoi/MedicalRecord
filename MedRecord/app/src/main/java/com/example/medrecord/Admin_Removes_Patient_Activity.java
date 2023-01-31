@@ -13,13 +13,27 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Admin_Removes_Patient_Activity extends AppCompatActivity {
-
+    /**
+     * list of patient that can be removed
+     */
     RecyclerView patientToRemoveRV;
+    /**
+     * adapter for recycle view
+     */
     Adapter_AdminRemovesPatient adapter;
+    /**
+     * singleton list of patients
+     */
     ArrayList<Patient> patients;
+    /**s
+     * singleton list of doctor
+     */
     ArrayList<Doctor> docs;
 
-
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +51,11 @@ public class Admin_Removes_Patient_Activity extends AppCompatActivity {
         patientToRemoveRV.setAdapter(adapter);
 
     }
+
+    /**
+     * removing the patient from singleton list
+     * @param view
+     */
     public void onSearchClickToRemove (View view) {
         EditText patientNameSearch = findViewById(R.id.inputPatientName_toRemove);
         String text = patientNameSearch.getText().toString();
@@ -54,17 +73,27 @@ public class Admin_Removes_Patient_Activity extends AppCompatActivity {
         adapter = new Adapter_AdminRemovesPatient(tempPatientList, this);
         patientToRemoveRV.setAdapter(adapter);
     }
+
+    /**
+     * refresh recycle view after removing patient
+     */
     public void refreshRecyclerView(){
         patients = Singleton_Patient_List.getInstance().getAvailablePatients();
         patientToRemoveRV.setAdapter(new Adapter_AdminRemovesPatient(patients,this));
         patientToRemoveRV.getAdapter().notifyDataSetChanged();
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
-
+    /**
+     * Save and write the current data to json file
+     */
     @Override
     public void onPause() {
         super.onPause();

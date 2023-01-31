@@ -17,8 +17,13 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Diagnose_Manage_Activity extends AppCompatActivity {
-
+    /**
+     * Patient to diagnose
+     */
     Patient patient;
+    /**
+     * Diagnosis from the lab
+     */
     Diagnose diagnose;
     TextView diagnoseDate;
     TextView Leukozyten_pro_nl;
@@ -26,7 +31,10 @@ public class Diagnose_Manage_Activity extends AppCompatActivity {
     TextView Lymphozyten_absolut_in_100_pro_nl;
     ImageView diagnoseImage;
     EditText docText;
-
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,21 +78,39 @@ public class Diagnose_Manage_Activity extends AppCompatActivity {
             docText.setText(diagnose.doctorPrescription);
 
     }
+
+    /**
+     * Handler for Save Diagnose button
+     * @param view
+     */
     public void onSaveDiagnoseClick(View view){
         String docNote = docText.getText().toString();
         diagnose.doctorPrescription = docNote;
         Toast.makeText(getApplicationContext(),"Doctor Comment Saved", Toast.LENGTH_SHORT).show();
     }
+
+    /**
+     * Handler for Delete Diagnose button
+     * @param view
+     */
     public void onDeleteDiagnoseClick(View view){
         patient.deleteDiagnose(diagnose);
         Toast.makeText(getApplicationContext(),"Diagnose deleted", Toast.LENGTH_SHORT).show();
         finish();
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+    /**
+     * Save and write the current data to json file
+     */
 
     @Override
     public void onPause() {

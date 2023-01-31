@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 
 public class AddDoctorActivity extends AppCompatActivity {
-
+    /**
+     * init activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +18,11 @@ public class AddDoctorActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
     }
+
+    /**
+     * @brief adding new Doctor to singleton doctor list
+     * @param view
+     */
     public void addDoctorClick(View view){
         EditText eText = findViewById(R.id.editPersonFirstName);
         String dFirstName = eText.getText().toString();
@@ -29,12 +37,20 @@ public class AddDoctorActivity extends AppCompatActivity {
             finish();
         }
     }
+
+    /**
+     * Navigation button
+     * @return true if the button is pressed
+     */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
 
+    /**
+     * save, write the data to json file
+     */
     @Override
     public void onPause() {
         super.onPause();

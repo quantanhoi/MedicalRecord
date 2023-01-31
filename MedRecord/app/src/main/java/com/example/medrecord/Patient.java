@@ -3,6 +3,9 @@ package com.example.medrecord;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * class for patient data
+ */
 public class Patient {
     public Patient(int id, String m_firstName, String m_lastName, int image, int age, String gender, String birthday, ArrayList<Diagnose> medicalHistory, int personalDoctorId, boolean toLab) {
         this.id = id;

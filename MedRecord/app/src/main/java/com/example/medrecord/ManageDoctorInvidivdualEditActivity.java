@@ -10,7 +10,10 @@ import android.widget.Toast;
 
 public class ManageDoctorInvidivdualEditActivity extends AppCompatActivity {
     public static int doctorID;
-
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,11 @@ public class ManageDoctorInvidivdualEditActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * handler for confirm button
+     * @param view
+     */
     public void ConfirmClick(View view) {
         EditText editText = findViewById(R.id.editPersonFirstName);
         String docFirstname = editText.getText().toString();
@@ -35,12 +43,19 @@ public class ManageDoctorInvidivdualEditActivity extends AppCompatActivity {
         Toast.makeText(view.getContext(), "Information Changed", Toast.LENGTH_SHORT).show();
         finish();
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
-
+    /**
+     * Save and write the current data to json file
+     */
     @Override
     public void onPause() {
         super.onPause();

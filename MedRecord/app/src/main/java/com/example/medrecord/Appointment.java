@@ -1,5 +1,9 @@
 package com.example.medrecord;
 
+
+/**
+ * supposed to used for appointment booking, is not yet used
+ */
 public class Appointment {
     private int day, month, year;
     public int getDay() {return day;}

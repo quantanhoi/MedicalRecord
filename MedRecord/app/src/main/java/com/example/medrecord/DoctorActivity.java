@@ -15,13 +15,29 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Activity wrap for the doctor
+ */
 public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_Manages_Patient.PatientItemClickListener{
+    /**
+     * selected doctor
+     */
     public static Doctor Doc ;
+    /**
+     * patient list of selected doctor
+     */
     ArrayList<Patient> patientList;
+    /**
+     * Recycle View for patient list
+     */
     RecyclerView patientListRV;
 
 
     @SuppressLint("MissingInflatedId")
+    /**
+     * activity initiation
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +76,10 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
 
     }
 
-
+    /**
+     * Handler for every Patient in the list
+     * @param position
+     */
 
     @Override
     public void onPatientClick(int position) {
@@ -73,6 +92,9 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
         startActivity(intent);
     }
 
+    /**
+     * update the data in the recycle view
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -81,11 +103,20 @@ public class DoctorActivity extends AppCompatActivity implements Adapter_Doctor_
         patientListRV.setAdapter(new Adapter_Doctor_Manages_Patient(getApplicationContext(),patientList,this));
         patientListRV.getAdapter().notifyDataSetChanged();
     }
+    /**
+     * Handler for navigation button
+     * @return true if button is pressed
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
+
+    /**
+     * Save and write the current data to json file
+     */
 
     @Override
     public void onPause() {
