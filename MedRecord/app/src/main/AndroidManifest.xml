@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedRecord"
+        android:windowSoftInputMode="adjustPan"
         tools:targetApi="31">
         <activity
             android:name=".Admin_Removes_Patient_Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".SupportActivity"
             android:exported="false" />

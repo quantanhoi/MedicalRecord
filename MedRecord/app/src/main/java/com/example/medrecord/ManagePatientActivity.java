@@ -1,6 +1,8 @@
 package com.example.medrecord;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
@@ -11,8 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ManagePatientActivity extends AppCompatActivity {
+public class ManagePatientActivity extends AppCompatActivity implements  Adapter_Patient.PatientItemClickListener{
     /**
      * list view of all patient in singleton list
      */
@@ -25,28 +28,17 @@ public class ManagePatientActivity extends AppCompatActivity {
      * activity initiation
      * @param savedInstanceState
      */
+    ArrayList<Patient> PatientList = Singleton_Patient_List.getInstance().getPatientsList();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_patient);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        patientList = findViewById(R.id.patientRecyclerView);
         ArrayList<String> patListName = new ArrayList<>();
-
-        for(int i = 0; i < Singleton_Patient_List.getInstance().getPatientsList().size(); i++) {
-            patListName.add(Singleton_Patient_List.getInstance().getPatientsList().get(i).getM_firstName());
-        }
-        ArrayAdapter<String> patientAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_list_item_1, patListName
-        );
-        patientList.setAdapter(patientAdapter);
-        patientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startPatientActivity();
-            }
-        });
+        RecyclerView PatientListRV = findViewById(R.id.AllPatientView);
+        PatientListRV.setLayoutManager(new LinearLayoutManager(this));
+        PatientListRV.setAdapter(new Adapter_Patient(getApplicationContext(), PatientList, this));
         swipeRefreshLayout = findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -102,5 +94,12 @@ public class ManagePatientActivity extends AppCompatActivity {
         super.onPause();
         Singleton_Doctor_List.getInstance().saveDoctors(this);
         Singleton_Patient_List.getInstance().savePatients(this);
+    }
+    @Override
+    public void onPatientClick(int position) {
+        String patientName = PatientList.get(position).getName();
+        Intent intent = new Intent(this, Lab_Diagnose_Patient_Activity.class);
+        intent.putExtra("patientName", patientName);
+        startActivity(intent);
     }
 }
